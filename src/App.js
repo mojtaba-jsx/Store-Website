@@ -1,8 +1,12 @@
 import React from 'react'
 import './App.css'
+
+import Header from './Components/CommonComponents/Header/Header'
 function App() {
   return (
-    <div>App</div>
+    <div>
+      <Header/>
+    </div>
   )
 }
 
