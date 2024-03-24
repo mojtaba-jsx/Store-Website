@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "roboto-medium";
+  src: url("../../../../Fonts/Roboto/Roboto-Medium.ttf");
+}
+.search-modal {
+  margin: 0 auto;
+  padding: 1rem;
+  width: 40rem;
+
+  border-radius: 1rem;
+  background-color: #2ec1ac;
+
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    display: none;
+}
+
+
+.search-modal__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-modal__input {
+  width: 22rem;
+  height: 2rem;
+  padding: 1rem;
+  margin: 0 auto;
+  /* padding:1rem 8rem; */
+  border: none;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  outline: none;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.search-modal__input::placeholder {
+  text-align: center;
+  font-family: "roboto-medium", Courier, monospace;
+  font-size: 1.2rem;
+}
+
+.search-modal-btn {
+  width: 10rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.search-modal__title {
+  width: 20rem;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 2rem;
+  font-family: "roboto-medium", Courier, monospace;
+  color: #ffff;
+  border-right: 8px solid #ffff;
+  border-left: 8px solid #ffff;
+}
+
+.search-modal-btn {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  font-family: "roboto-medium", Courier, monospace;
+  font-size: 1.2rem;
+  background-color: #2ec1ac;
+  cursor: pointer;
+  color: #ffff;
+  transition: all 140ms ease-in;
+}
+
+.search-modal-btn:hover {
+  box-shadow: rgb(6, 19, 30) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
