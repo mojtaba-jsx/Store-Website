@@ -16,7 +16,7 @@
     overflow-y: scroll;
     margin: 0 auto;
     margin-right: 0;
-    display: none;
+    /* display: none; */
 }
 .basket::-webkit-scrollbar {
     background-color: #ffff;
