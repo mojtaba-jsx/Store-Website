@@ -163,17 +163,16 @@
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 
-.search-modal__close svg {
+.modal__close-btn svg {
   width: 2.5rem;
   height: 2.5rem;
   color: rgb(215, 9, 9);
   cursor: pointer;
   transition: all 140ms ease-in;
 }
-.search-modal__close svg:hover {
+.modal__close-btn svg:hover {
   box-shadow: rgb(254, 20, 20) 0px 0px 0px 2px,
-    rgb(245, 38, 38) 0px 4px 6px -1px,
-    rgba(255, 6, 6, 0.88) 0px 1px 0px inset;
+    rgb(245, 38, 38) 0px 4px 6px -1px, rgba(255, 6, 6, 0.88) 0px 1px 0px inset;
 }
 
 /*! Mobile Menu */
@@ -200,9 +199,6 @@
   padding: 1rem;
   display: none;
 }
-.open {
-  display: block;
-}
 
 .mobile__menu__list__item {
   list-style-type: none;
@@ -225,6 +221,77 @@
   width: 100%;
 }
 
+/*! Basket */
+
+.basket {
+  position: absolute;
+  top: 6rem;
+  right: 0;
+  width: 25rem;
+  height: 20rem;
+  border-radius: 1rem;
+  background-color: #2ec1ac;
+  padding: 1rem;
+  overflow-y: scroll;
+  margin: 0 auto;
+  margin-right: 0;
+  display: none;
+}
+.basket::-webkit-scrollbar {
+  background-color: #ffff;
+  border-radius: 1rem;
+  height: 1rem;
+  width: 20px;
+}
+.basket::-webkit-scrollbar-thumb {
+  background-color: #2b6c62;
+  border-radius: 1rem;
+}
+
+.basket__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.basket__product__left-image {
+  width: 5rem;
+  height: 6rem;
+}
+
+.basket__title {
+  width: 10rem;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  font-family: "roboto-medium", Courier, monospace;
+  color: #ffff;
+}
+
+.basket__product {
+  background-color: #ffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+  width: 20rem;
+  height: 6rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.basket__product__right-name {
+  margin-right: 2rem;
+  font-family: "roboto-medium", Courier, monospace;
+}
+.basket__product__right-price {
+  margin-right: 2rem;
+  font-family: "roboto-medium", Courier, monospace;
+}
+
 /*! Responsive */
 @media screen and (max-width: 1108px) {
   .navbar__menu {
@@ -240,4 +307,9 @@
     display: block;
     margin-right: 1rem;
   }
+}
+
+
+.open {
+  display: block;
 }

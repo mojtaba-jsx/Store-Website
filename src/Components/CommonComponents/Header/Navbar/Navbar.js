@@ -12,6 +12,7 @@ function Navbar() {
   // !ElementsRef
   const mobileMenuRef = React.createRef();
   const searchBoxRef = React.createRef();
+  const basketRef = React.createRef();
 
   // !Functions
   const showAndHideMobileMenu = () => {
@@ -26,9 +27,21 @@ function Navbar() {
   };
   //!
 
-  const closeModal = () => {
+  const closeSearchModal = () => {
     let searchBoxELement = searchBoxRef.current;
     searchBoxELement.classList.toggle("open");
+  };
+  //!
+
+  const showHidBasket = () => {
+    let basketElement = basketRef.current;
+    basketElement.classList.toggle("open");
+  };
+  //!
+
+  const closeBasketModal = () => {
+    let basketElement = basketRef.current;
+    basketElement.classList.toggle("open");
   };
 
   return (
@@ -81,7 +94,7 @@ function Navbar() {
             <IoSearch className="navbar__btns__search-icon" />
           </span>
 
-          <span className="navbar__btns__basket">
+          <span className="navbar__btns__basket" onClick={showHidBasket}>
             <FaBasketShopping className="navbar__btns__basket-link" />
           </span>
         </div>
@@ -137,7 +150,7 @@ function Navbar() {
         </div>
 
         <div className="search-modal" ref={searchBoxRef}>
-          <span className="search-modal__close" onClick={closeModal}>
+          <span className="modal__close-btn" onClick={closeSearchModal}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -161,6 +174,88 @@ function Navbar() {
               placeholder="Enter Product Name"
             />
             <button className="search-modal-btn">Search</button>
+          </div>
+        </div>
+
+        <div className="basket" ref={basketRef}>
+          <span className="modal__close-btn" onClick={closeBasketModal}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </span>
+          <div className="basket__wrapper">
+            <span className="basket__title">Products List</span>
+            <div className="basket__product">
+              <div className="basket__product__left">
+                <img
+                  src="images/product-1.jpg"
+                  alt="product"
+                  className="basket__product__left-image"
+                />
+              </div>
+
+              <div className="basket__product__right">
+                <span className="basket__product__right-name">Prodcut1</span>
+                <span className="basket__product__right-price">$10</span>
+                <span className="basket__product__right-value">8</span>
+              </div>
+            </div>
+            <div className="basket__product">
+              <div className="basket__product__left">
+                <img
+                  src="images/product-1.jpg"
+                  alt="product"
+                  className="basket__product__left-image"
+                />
+              </div>
+
+              <div className="basket__product__right">
+                <span className="basket__product__right-name">Prodcut1</span>
+                <span className="basket__product__right-price">$10</span>
+                <span className="basket__product__right-value">8</span>
+              </div>
+            </div>
+            <div className="basket__product">
+              <div className="basket__product__left">
+                <img
+                  src="images/product-1.jpg"
+                  alt="product"
+                  className="basket__product__left-image"
+                />
+              </div>
+
+              <div className="basket__product__right">
+                <span className="basket__product__right-name">Prodcut1</span>
+                <span className="basket__product__right-price">$10</span>
+                <span className="basket__product__right-value">8</span>
+              </div>
+            </div>
+            <div className="basket__product">
+              <div className="basket__product__left">
+                <img
+                  src="images/product-1.jpg"
+                  alt="product"
+                  className="basket__product__left-image"
+                />
+              </div>
+
+              <div className="basket__product__right">
+                <span className="basket__product__right-name">Prodcut1</span>
+                <span className="basket__product__right-price">$10</span>
+                <span className="basket__product__right-value">8</span>
+              </div>
+            </div>
           </div>
         </div>
 
