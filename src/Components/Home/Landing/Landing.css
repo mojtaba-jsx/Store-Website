@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "roboto-medium";
+  src: url("../../../Fonts/Roboto/Roboto-Medium.ttf");
+}
+@font-face {
+  font-family: "roboto-bold";
+  src: url("../../../Fonts/Roboto/Roboto-Bold.ttf");
+}
+
+.landing {
+  height: 40rem;
+  background-image: url("../../../../public/images/landing.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 5rem;
+}
+
+.arrival {
+  position: absolute;
+  right: 4rem;
+  bottom: 5rem;
+  width: 40rem;
+  height: 20rem;
+  background-color: #fff3e3;
+  padding: 2rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  transition: all 180ms ease-in;
+}
+.arrival:hover{
+    transform: scale(1.1);
+}
+
+.arrival-title {
+  font-family: "roboto-medium", Courier, monospace;
+  font-size: 1.2rem;
+  color: #333333;
+}
+
+.arrival-subtitle {
+  font-family: "roboto-bold", Courier, monospace;
+  font-size: 4rem;
+  margin-top: 1rem;
+  color: #b88e2f;
+}
+
+.arrival-text {
+  font-family: "roboto-medium", Courier, monospace;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  line-height: 1.4rem;
+}
+
+.landing-btn {
+  margin-top: 2rem;
+  padding: 1.2rem 4rem;
+  border: none;
+  outline: none;
+  border-radius: 1rem;
+  font-family: "roboto-bold", Courier, monospace;
+  background-color: #b88e2f;
+  color:#ffff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}

@@ -1,8 +1,12 @@
 import React from 'react'
 import './Home.css'
+
+import Landing from './Landing/Landing'
  function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <Landing/>
+    </div>
   )
 }
 
