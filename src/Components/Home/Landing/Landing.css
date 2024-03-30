@@ -29,8 +29,8 @@
   border-radius: 1rem;
   transition: all 180ms ease-in;
 }
-.arrival:hover{
-    transform: scale(1.1);
+.arrival:hover {
+  transform: scale(1.1);
 }
 
 .arrival-title {
@@ -61,7 +61,50 @@
   border-radius: 1rem;
   font-family: "roboto-bold", Courier, monospace;
   background-color: #b88e2f;
-  color:#ffff;
+  color: #ffff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
+}
+
+/*! Responsive */
+@media screen and (max-width: 840px) {
+  .arrival {
+    width: 30rem;
+  }
+  .arrival-subtitle {
+    font-size: 2.8rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  .arrival {
+    width: 25rem;
+  }
+  .arrival-subtitle {
+    font-size: 2.4rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .arrival {
+    width: 20rem;
+  }
+  .arrival-subtitle {
+    font-size: 2rem;
+  }
+  .arrival-text{
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .arrival {
+    width: 16rem;
+  }
+  .arrival-subtitle {
+    font-size: 2rem;
+  }
+  .arrival-text{
+    font-size: 1rem;
+  }
+  .arrival{
+    right: 2rem;
+  }
 }
