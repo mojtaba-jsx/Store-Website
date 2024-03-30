@@ -11,6 +11,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 }
 
 .navbar__logo {
@@ -91,6 +93,7 @@
   margin: 0 auto;
   padding: 1rem;
   width: 40rem;
+  z-index: 1000;
 
   border-radius: 1rem;
   background-color: #2ec1ac;
@@ -225,6 +228,7 @@
 
 .basket {
   position: absolute;
+  z-index: 1000;
   top: 6rem;
   right: 0;
   width: 25rem;
