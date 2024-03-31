@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "josefin";
+  src: url("../../../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf");
+}
+.category-item {
+  width: 20rem;
+  height: 28rem;
+  /* background-color: red; */
+  border-radius: 1rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  /* padding: 1rem; */
+  transition: all 180ms ease-in;
+  cursor: pointer;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+.category-item:hover {
+  box-shadow: #b88e2f 0px 2px 4px, #b88e2f 0px 7px 13px -3px,
+    #b88e2f 0px -3px 0px inset;
+    transform: scale(1.1);
+}
+
+.category-item__image {
+  width: 100%;
+  height: 88%;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  margin: 0 auto;
+  display: block;
+}
+
+.category-item__name {
+  text-align: center;
+  font-family: "josefin", Courier, monospace;
+  font-size: 2rem;
+  width: 10rem;
+  /* background-color: aliceblue; */
+  margin: 0 auto;
+  margin-top: 1rem;
+  display: block;
+}

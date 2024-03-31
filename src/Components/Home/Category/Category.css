@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "roboto-bold";
+  src: url("../../../Fonts/Roboto/Roboto-Bold.ttf");
+}
+@font-face {
+  font-family: "josefin";
+  src: url("../../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf");
+}
+.category {
+  margin-bottom: 4rem;
+}
+
+.category-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.category-title {
+  text-align: center;
+  font-size: 4rem;
+  font-family: "josefin", Courier, monospace;
+  margin-bottom: 2rem;
+  color: #b88e2f;
+}
+
+@media screen and (max-width: 1400px) {
+}
+@media screen and (max-width: 740px) {
+  .category-title {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 460px) {
+  .category-title {
+    font-size: 2rem;
+  }
+}
