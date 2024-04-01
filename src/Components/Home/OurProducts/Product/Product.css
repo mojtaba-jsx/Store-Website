@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'josefin';
+    src: url('../../../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf');
+}
+.product {
+  width: 18rem;
+  height: 29rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #FCF8F3;
+  margin-bottom: 4rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.product__image{
+    width: 100%;
+    height: 20rem;
+border-radius: 1rem;
+}
+
+.product__info{
+    display: flex;
+    flex-direction: column;
+    font-family: 'josefin', Courier, monospace;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.product__info-name{
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+.product__info-price{
+    font-size: 1.4rem;
+    margin-top: 1rem;
+}
+
+.product__info-rate{
+    font-size: 1.4rem;
+    margin-top: 1rem;
+}
+
+.product__info-rate-icon{
+    color: gold;
+    fill: gold;
+}   
