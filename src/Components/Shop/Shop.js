@@ -1,10 +1,13 @@
 import React from 'react'
 import './Shop.css'
-import Landing from '../Home/Landing/Landing'
+import Header from '../CommonComponents/Header/Header'
+import ShopLanding from './ShopLanding/ShopLanding'
  function Shop() {
   return (
-    <div>
-      <Landing/>
+    <div className='shop'>
+      <Header/>
+      <ShopLanding/>
+      
     </div>
   )
 }
