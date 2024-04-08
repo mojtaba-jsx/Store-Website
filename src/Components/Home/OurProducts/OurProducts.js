@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./OurProducts.css";
-import Product from "./Product/Product";
+import Product from "../../Shop/Products/Product/Product";
 import { FaProductHunt } from "react-icons/fa";
 function OurProducts() {
   let [product, setProduct] = useState([

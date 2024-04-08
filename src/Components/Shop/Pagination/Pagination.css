@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'josefin';
+    src: url('../../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf');
+}
+
+
+.pagination{
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.pagination__list{
+    width: 30rem;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    /* background-color: red; */
+    text-align: center;
+    /* padding: 1rem; */
+}
+
+.pagination__list__item{
+    padding: 1.4rem 1.8rem;
+    border-radius: 0.5rem;
+    background-color: #F9F1E7;
+    font-family: 'josefin', Courier, monospace;
+}
+
+.pagination__list__item--active{
+    background-color: #B88E2F;
+}
