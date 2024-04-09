@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "josefin";
+  src: url("../../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf");
+}
+
+.shop-benefits {
+  margin-bottom: 2rem;
+  background-color: #faf3ea;
+  padding: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.shop-benefits__wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.shop-benefits__box {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  transition: all 140ms ease-in;
+  padding: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.shop-benefits__box:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+.shop-benefits__box__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "josefin", Courier, monospace;
+  font-size: 1.2rem;
+}
+.shop-benefits__box__right-title {
+  font-weight: bold;
+}
+.shop-benefits__box__right-text {
+  margin-top: 1rem;
+  color: #72706d;
+}
+
+.shop-benefits__box__left-icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  margin-right: 1rem;
+}

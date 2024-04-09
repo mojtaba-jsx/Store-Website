@@ -14,9 +14,10 @@
     margin: 0 auto;
 }
 .pagination__list{
-    width: 30rem;
+    /* width: 30rem; */
+    flex-wrap: wrap;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin: 0 auto;
     /* background-color: red; */
     text-align: center;
