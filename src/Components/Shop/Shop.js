@@ -6,6 +6,7 @@ import ShopOption from './ShopOption/ShopOption'
 import Products from './Products/Products'
 import Pagination from './Pagination/Pagination'
 import ShopBenefits from './ShopBenefits/ShopBenefits'
+import Footer from '../CommonComponents/Footer/Footer'
  function Shop() {
   return (
     <div className='shop'>
@@ -15,6 +16,7 @@ import ShopBenefits from './ShopBenefits/ShopBenefits'
       <Products/>
       <Pagination/>
       <ShopBenefits/>
+      <Footer/>
       
     </div>
   )
