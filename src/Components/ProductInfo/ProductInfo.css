@@ -1,0 +1,194 @@
+@font-face {
+  font-family: "josefin";
+  src: url("../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf");
+}
+
+.product-info__wrapper {
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.product-info__left-image {
+  width: 20rem;
+  height: 24rem;
+  border-radius: 1rem;
+  transition: all 140ms ease-in;
+}
+.product-info__left-image:hover {
+  transform: scale(1.1);
+}
+.product-info__right span {
+  display: block;
+}
+.product-info__left {
+  background-color: #f9f1e7;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.product-info__title {
+  font-size: 4rem;
+  font-family: "josefin", Courier, monospace;
+  color: #b88e2f;
+}
+
+.product-info__price {
+  font-family: "josefin", Courier, monospace;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.product-info__rate {
+  font-family: "josefin", Courier, monospace;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+.product-info__rate-icon {
+  color: gold;
+  width: 2rem;
+  height: 2rem;
+}
+
+.product-info__description {
+  width: 30rem;
+  font-family: "josefin", Courier, monospace;
+  line-height: 1.4rem;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+.product-info__description-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: #b88e2f;
+  margin-right: 1rem;
+}
+
+.product-info__category {
+  border: none;
+  outline: none;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  font-family: "josefin", Courier, monospace;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #f9f1e7;
+  color: #b88e2f;
+  cursor: pointer;
+}
+
+.product-info__stock {
+  margin-top: 1rem;
+  font-family: "josefin", Courier, monospace;
+  padding: 1rem;
+  background-color: #2ec1ac;
+  width: 10rem;
+  text-align: center;
+  border-radius: 1rem;
+  color: #ffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.product-info__inputs {
+  display: flex;
+  margin-top: 2rem;
+  /* align-items: center; */
+}
+
+.product-info__inputs-number {
+  width: 4rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  background-color: #f9f1e7;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  font-family: "josefin", Courier, monospace;
+}
+
+.product-info__inputs-btn {
+  border: none;
+  outline: none;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-family: "josefin", Courier, monospace;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  transition: all 140ms ease-in;
+  cursor: pointer;
+  background-color: #ffff;
+  color: #2ec1ac;
+  font-weight: bold;
+}
+
+.product-info__inputs-btn:hover {
+  color: #ffff;
+  background-color: #2ec1ac;
+}
+.product-info__inputs-btn-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+@media screen and (max-width: 940px) {
+    .product-info__wrapper{
+        flex-direction: column;
+    }
+    .product-info__left-image{
+        display: block;
+        margin: 0 auto;
+    }
+    .product-info__right{
+        margin-top: 2rem;
+        text-align: center;
+    }
+    .product-info__description,.product-info__stock{
+        margin: 0 auto;
+        margin-top: 1rem;
+    }
+    .product-info__inputs{
+        justify-content: space-around;
+        margin: 0 auto;
+        margin-top: 2rem;
+    }
+ 
+}
+@media screen and (max-width: 500px) {
+    .product-info__description{
+        width: 25rem;
+    }
+ 
+}
+@media screen and (max-width: 430px) {
+    .product-info__description{
+        width: 18rem;
+    }
+    .product-info__inputs{
+        flex-direction: column;
+    }
+    .product-info__inputs-number{
+        margin: 0 auto;
+    }
+    .product-info__inputs-btn{
+        padding: 1rem;
+        text-align: center;
+        width: 14rem;
+        margin: 0 auto;
+        margin-top: 1rem;
+        justify-content: space-around;
+    }
+    .product-info__left-image{
+        width: 16rem;
+        height: 20rem;
+    }
+    .product-info__left-image:hover {
+        transform: scale(1.04);
+      }
+ 
+}
+
