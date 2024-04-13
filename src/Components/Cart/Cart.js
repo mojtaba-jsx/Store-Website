@@ -2,6 +2,8 @@ import React from "react";
 import "./Cart.css";
 import Navbar from "../CommonComponents/Header/Navbar/Navbar";
 import CartLanding from "./CartLanding/CartLanding";
+import ShopBenefits from '../Shop/ShopBenefits/ShopBenefits'
+import Footer from '../CommonComponents/Footer/Footer'
 
 function Cart() {
   return (
@@ -69,6 +71,8 @@ function Cart() {
           <button className="cart__right-btn">Check Out</button>
         </div>
       </div>
+      <ShopBenefits/>
+      <Footer/>
     </div>
   );
 }
