@@ -2,6 +2,8 @@ import React from "react";
 import "./CheckOut.css";
 import CheckOutLanding from "./CheckOutLanding/CheckOutLanding";
 import Navbar from "../CommonComponents/Header/Navbar/Navbar";
+import ShopBenefits from '../Shop/ShopBenefits/ShopBenefits';
+import Footer from '../CommonComponents/Footer/Footer'
 function CheckOut() {
   return (
     <div className="checkout">
@@ -136,6 +138,8 @@ function CheckOut() {
           </div>
         </div>
       </div>
+      <ShopBenefits/>
+      <Footer/>
     </div>
   );
 }
