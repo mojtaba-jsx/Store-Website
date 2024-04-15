@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "josefin";
+  src: url("../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf");
+}
+
+.contact {
+  margin-bottom: 4rem;
+}
+.contact__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact__top__title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-family: "josefin", Courier, monospace;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.contact__top__text {
+  width: 40rem;
+  line-height: 1.4rem;
+  text-align: center;
+  font-family: "josefin", Courier, monospace;
+}
+
+.contact__bottom {
+  width: 88%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2.8rem;
+}
+
+.contact__bottom__left {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__bottom__left__box {
+  display: flex;
+  margin-bottom: 2.8rem;
+}
+
+.contact__bottom__left__box-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__bottom__left__box-left-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 2rem;
+}
+
+.contact__bottom__left__box-right-title {
+  font-size: 1.4rem;
+  font-family: "josefin", Courier, monospace;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.contact__bottom__left__box-right-text {
+  width: 14rem;
+  font-family: "josefin", Courier, monospace;
+  line-height: 1.4rem;
+}
+
+.contact__bottom__left__box-right-title-text {
+  font-family: "josefin", Courier, monospace;
+  margin-bottom: 0.5rem;
+}
+
+.contact__bottom__right-form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.contact__bottom__right-form div input {
+  /* padding: 1rem 4rem; */
+  height: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  outline: none;
+  border: 1px solid #9f9f9f;
+  font-size: 1.2rem;
+  font-family: "josefin", Courier, monospace;
+  text-align: center;
+}
+.contact__bottom__right-form div input::placeholder {
+  font-family: "josefin", Courier, monospace;
+  text-align: center;
+}
+
+.contact__bottom__right-form-textarea-input {
+  width: 25rem;
+  height: 14rem;
+  outline: none;
+  border-radius: 1rem;
+  resize: none;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+.contact__bottom__right-form-textarea-input::placeholder {
+  font-family: "josefin", Courier, monospace;
+}
+
+.contact__bottom__right-form-btn {
+  padding: 1rem 8rem;
+  outline: none;
+  border-radius: 1rem;
+  background-color: #b88e2f;
+  font-size: 1.2rem;
+  color: #ffff;
+  border: none;
+  transition: all 140ms ease-in;
+  cursor: pointer;
+  font-family: "josefin", Courier, monospace;
+}
+
+.contact__bottom__right-form-btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+@media screen and (max-width: 880px) {
+  .contact__bottom {
+    flex-direction: column;
+  }
+  .contact__bottom__left {
+    margin: 0 auto;
+  }
+  .contact__top__text {
+    width: 30rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .contact__top__text {
+    width: 20rem;
+    margin: 0 auto;
+  }
+  .contact__top__title {
+    font-size: 2rem;
+  }
+  .contact__bottom__right-form-textarea-input{
+    width: 18rem;
+    margin: auto;
+  }
+  .contact__bottom__right-form-btn{
+    display: block;
+    margin: 0 auto;
+    padding: 1rem 6rem;
+  }
+}

@@ -5,7 +5,7 @@ function CheckOutLanding() {
   return (
     <div className="checkout-landing">
       <div className="shadow"></div>
-      <h1 className="checkout-landing-title">cart</h1>
+      <h1 className="checkout-landing-title">Checkout</h1>
       <div className="checkout-landing__path">
         <span className="checkout-landing__path-home">Home</span>
 
