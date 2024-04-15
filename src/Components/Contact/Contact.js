@@ -2,6 +2,8 @@ import React from "react";
 import "./Contact.css";
 import ContactLanding from "./ContactLanding/ContactLanding";
 import Navbar from "../CommonComponents/Header/Navbar/Navbar";
+import ShopBenefits from "../Shop/ShopBenefits/ShopBenefits";
+import Footer from "../CommonComponents/Footer/Footer";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoTime } from "react-icons/io5";
@@ -99,7 +101,10 @@ function Contact() {
               </div>
               <div className="contact__bottom__right-form-textarea">
                 <label>Message</label>
-                <textarea placeholder="Enter The Message" className="contact__bottom__right-form-textarea-input"></textarea>
+                <textarea
+                  placeholder="Enter The Message"
+                  className="contact__bottom__right-form-textarea-input"
+                ></textarea>
               </div>
               <button className="contact__bottom__right-form-btn">
                 Submit
@@ -108,6 +113,8 @@ function Contact() {
           </div>
         </div>
       </div>
+      <ShopBenefits />
+      <Footer />
     </div>
   );
 }
