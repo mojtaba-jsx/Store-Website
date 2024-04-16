@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "josefin";
+  src: url("../../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf");
+}
+
+.blog-post {
+  width: 80rem;
+  /* height: 44rem; */
+  background-color: #faf3ea;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.blog-post__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-post-image {
+  width: 20rem;
+  display: block;
+  margin: 0 auto;
+  /* height: auto; */
+  border-radius: 1rem;
+}
+
+.blog-post__infos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+  font-family: "josefin", Courier, monospace;
+  font-size: 1.2rem;
+}
+
+.blog-post__infos span {
+  display: flex;
+  align-items: center;
+}
+
+.blog-post__infos-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.blog-post-title {
+  font-size: 2rem;
+  font-family: "josefin", Courier, monospace;
+  margin-top: 1rem;
+}
+
+.blog-post-text {
+  font-size: 1.2rem;
+  font-family: "josefin", Courier, monospace;
+  line-height: 1.4rem;
+  margin-top: 1rem;
+}
+
+.blog-post-btn {
+  width: 10rem;
+  height: 2.8rem;
+  margin-top: 2rem;
+  outline: none;
+  border: none;
+  background: none;
+  border-bottom: 2px solid black;
+  font-family: "josefin", Courier, monospace;
+  font-size: 1.2rem;
+  transition: all 140ms ease-in;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.blog-post-btn:hover {
+  font-weight: bold;
+  background-color: #b88e2f;
+}
+
+@media screen and (max-width: 1400px) {
+  .blog-post {
+    width: 60rem;
+  }
+}
+@media screen and (max-width: 1140px) {
+  .blog-post {
+    width: 50rem;
+  }
+}
+@media screen and (max-width:864px) {
+  .blog-post {
+    width: 40rem;
+  }
+}
+@media screen and (max-width:720px) {
+  .blog-post {
+    width: 30rem;
+  }
+}
+@media screen and (max-width:550px) {
+  .blog-post {
+    width: 25rem;
+  }
+  .blog-post__infos{
+    flex-wrap: wrap;
+  }
+  .blog-post__infos span{
+    margin-bottom: 0.5rem;
+  }
+}
+@media screen and (max-width:460px) {
+  .blog-post {
+    width: 18rem;
+  }
+  .blog-post-image{
+    width: 100%;
+  }
+}
