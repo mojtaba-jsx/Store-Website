@@ -1,0 +1,120 @@
+@font-face {
+  font-family: "josefin";
+  src: url("../../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf");
+}
+.blog-info {
+  margin-bottom: 4rem;
+}
+
+.blog-info__title {
+  text-align: center;
+  font-size: 4rem;
+  font-family: "josefin", Courier, monospace;
+  margin-top: 2rem;
+}
+.blog-info__infos span {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+}
+.blog-info__infos {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 40rem;
+  /* background-color: red; */
+  border-radius: 1rem;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.5rem;
+  font-family: "josefin", Courier, monospace;
+  margin-top: 2rem;
+}
+
+.blog-info-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.blog-info-image {
+  display: block;
+  width: 30rem;
+  height: 30rem;
+  margin: 0 auto;
+}
+
+.blog-info-text {
+  width: 60rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+  text-align: justify;
+  font-family: "josefin", Courier, monospace;
+  line-height: 1.2rem;
+}
+
+@media screen and (max-width: 980px) {
+  .blog-info-text {
+    width: 50rem;
+  }
+}
+@media screen and (max-width: 840px) {
+  .blog-info-text {
+    width: 40rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .blog-info__title {
+    font-size: 2.5rem;
+  }
+  .blog-info__infos {
+    width: 30rem;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .blog-info-text {
+    width: 30rem;
+  }
+}
+@media screen and (max-width: 580px) {
+  .blog-info__infos {
+    padding: 1rem;
+  }
+  .blog-info__infos {
+    flex-direction: column;
+  }
+  .blog-info__infos span {
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .blog-info-landing-title {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 530px) {
+  .blog-info__title {
+    font-size: 2rem;
+  }
+  .blog-info-image {
+    width: 20rem;
+  }
+  .blog-info-text {
+    width: 20rem;
+  }
+  .blog-info__infos{
+    width: 25rem;
+  }
+}
+@media screen and (max-width: 450px) {
+    .blog-info__infos{
+        width: 18rem;
+    }
+    .blog-info-image{
+        width: 16rem;
+        height: 20rem;
+    }
+    .blog-info-text{
+        width: 16rem;
+    }
+}
