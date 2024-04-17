@@ -50,6 +50,7 @@
   text-align: justify;
   font-family: "josefin", Courier, monospace;
   line-height: 1.2rem;
+  margin-bottom: 4rem;
 }
 
 @media screen and (max-width: 980px) {
