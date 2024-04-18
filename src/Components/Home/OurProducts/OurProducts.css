@@ -37,3 +37,11 @@
     color: #ffff;
     cursor: pointer;
 }
+.our-products__btn:hover .our-products__btn-link{
+    color: #ffff;
+}
+
+.our-products__btn-link{
+    color: #b88e2f;
+    text-decoration: none;
+}

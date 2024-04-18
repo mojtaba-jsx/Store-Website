@@ -1,5 +1,7 @@
 // !Importe
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./Navbar.css";
 // !icons
 import { FaShopify } from "react-icons/fa";
@@ -61,24 +63,24 @@ function Navbar() {
         <div className="navbar__menu">
           <ul className="navbar__menu__list">
             <li className="navbar__menu__list__item">
-              <a href="#" className="navbar__menu__list__item-link">
+              <Link to={'/'} className="navbar__menu__list__item-link">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="navbar__menu__list__item">
-              <a href="#" className="navbar__menu__list__item-link">
+              <Link to={'/shop'} className="navbar__menu__list__item-link">
                 Shop
-              </a>
+              </Link>
             </li>
             <li className="navbar__menu__list__item">
-              <a href="#" className="navbar__menu__list__item-link">
-                About
-              </a>
+              <Link to={'/blog'} className="navbar__menu__list__item-link">
+                Blog
+              </Link>
             </li>
             <li className="navbar__menu__list__item">
-              <a href="#" className="navbar__menu__list__item-link">
+              <Link to={'/contact'} className="navbar__menu__list__item-link">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -199,7 +201,7 @@ function Navbar() {
             <div className="basket__product">
               <div className="basket__product__left">
                 <img
-                  src="images/product-1.jpg"
+                  src="images/product.jpg"
                   alt="product"
                   className="basket__product__left-image"
                 />
@@ -214,7 +216,7 @@ function Navbar() {
             <div className="basket__product">
               <div className="basket__product__left">
                 <img
-                  src="images/product-1.jpg"
+                  src="images/product.jpg"
                   alt="product"
                   className="basket__product__left-image"
                 />
@@ -229,7 +231,7 @@ function Navbar() {
             <div className="basket__product">
               <div className="basket__product__left">
                 <img
-                  src="images/product-1.jpg"
+                  src="images/product.jpg"
                   alt="product"
                   className="basket__product__left-image"
                 />
@@ -244,7 +246,7 @@ function Navbar() {
             <div className="basket__product">
               <div className="basket__product__left">
                 <img
-                  src="images/product-1.jpg"
+                  src="images/product.jpg"
                   alt="product"
                   className="basket__product__left-image"
                 />

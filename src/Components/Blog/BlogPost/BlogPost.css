@@ -79,6 +79,10 @@
   font-weight: bold;
   background-color: #b88e2f;
 }
+.blog-post-btn-link{
+  text-decoration: none;
+  color: black;
+}
 
 @media screen and (max-width: 1400px) {
   .blog-post {
