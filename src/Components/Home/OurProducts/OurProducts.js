@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "./OurProducts.css";
 import Product from "../../Shop/Products/Product/Product";
 import { FaProductHunt } from "react-icons/fa";
 function OurProducts() {
-  let [product, setProduct] = useState([
-    { id: 1, name: "shirt", price: "100",rate:'4.2', image:'./images/product.jpg' },
-    { id: 2, name: "cup", price: "200",rate:'2.2', image:'./images/product.jpg' },
-    { id: 3, name: "book", price: "1000",rate:'1.2', image:'./images/product.jpg' },
-    { id: 4, name: "jeweley", price: "800",rate:'5', image:'./images/product.jpg' },
-  ]);
+
+  useEffect(()=>{
+    fetch('https://fakestoreapi.com/products?limit=4')
+    .then(res=>res.json())
+    .then(products=>{
+      setProduct(products)
+      // console.log(products);
+    })
+  })
+
+
+  let [product, setProduct] = useState([]);
 
   return (
     <div className="our-products">
