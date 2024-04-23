@@ -45,6 +45,8 @@
   font-size: 2rem;
   font-family: "josefin", Courier, monospace;
   font-weight: bold;
+  opacity: 0.8;
+
 }
 .shop-landing__path-arrow-icon {
   width: 2rem;
@@ -54,6 +56,6 @@
 .shop-landing__path-shop {
   font-size: 2rem;
   font-family: "josefin", Courier, monospace;
-  opacity: 0.8;
+  font-weight: bold;
 }
 

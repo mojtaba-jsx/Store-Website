@@ -44,17 +44,22 @@
 .contact-landing__path-home {
   font-size: 2rem;
   font-family: "josefin", Courier, monospace;
-  font-weight: bold;
+  opacity: 0.8;
 }
 .contact-landing__path-arrow-icon {
   width: 2rem;
   height: 2rem;
 }
+.contact-landing__path-shop {
+  font-size: 2rem;
+  opacity: 0.8;
+  font-family: "josefin", Courier, monospace;
+}
 
 .contact-landing__path-contact {
   font-size: 2rem;
   font-family: "josefin", Courier, monospace;
-  opacity: 0.8;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 500px) {

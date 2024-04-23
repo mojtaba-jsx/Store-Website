@@ -14,7 +14,7 @@ function ContactLanding() {
           <IoIosArrowForward className="contact-landing__path-arrow-icon" />
         </span>
 
-        <span className="contact-landing__path-contact">Shop</span>
+        <span className="contact-landing__path-shop">Shop</span>
         <span className="contact-landing__path-arrow">
           <IoIosArrowForward className="contact-landing__path-arrow-icon" />
         </span>

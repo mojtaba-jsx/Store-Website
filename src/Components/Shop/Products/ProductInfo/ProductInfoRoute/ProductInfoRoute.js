@@ -18,7 +18,7 @@ import { IoIosArrowForward } from "react-icons/io";
             </span>
 
             <span className="product-info-route-product-name">
-                Book
+                Product
             </span>
         </div>
     </div>

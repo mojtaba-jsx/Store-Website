@@ -1,6 +1,6 @@
 @font-face {
   font-family: "josefin";
-  src: url("../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf");
+  src: url("../../../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf");
 }
 
 .product-info__wrapper {
@@ -29,7 +29,8 @@
   border-radius: 1rem;
 }
 .product-info__title {
-  font-size: 4rem;
+  width: 40rem;
+  font-size: 2rem;
   font-family: "josefin", Courier, monospace;
   color: #b88e2f;
 }
@@ -79,7 +80,7 @@
   cursor: pointer;
 }
 
-.product-info__stock {
+.product-info__userscomment {
   margin-top: 1rem;
   font-family: "josefin", Courier, monospace;
   padding: 1rem;
@@ -90,6 +91,14 @@
   color: #ffff;
   font-weight: bold;
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.product-info__userscomment-icon{
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
 }
 .product-info__inputs {
   display: flex;

@@ -44,7 +44,8 @@
 .blog-landing__path-home {
   font-size: 2rem;
   font-family: "josefin", Courier, monospace;
-  font-weight: bold;
+
+  opacity: 0.8;
 }
 .blog-landing__path-arrow-icon {
   width: 2rem;
@@ -54,6 +55,5 @@
 .blog-landing__path-blog {
   font-size: 2rem;
   font-family: "josefin", Courier, monospace;
-  opacity: 0.8;
+  font-weight: bold;
 }
-
