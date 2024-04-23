@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import './About.css'
+import './Blog.css'
 import BlogLanding from './BlogLanding/BlogLanding'
 import Navbar from '../CommonComponents/Header/Navbar/Navbar'
 import BlogPost from './BlogPost/BlogPost'

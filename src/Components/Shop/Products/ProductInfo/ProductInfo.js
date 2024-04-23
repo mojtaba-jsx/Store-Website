@@ -6,24 +6,36 @@ import ProductInfoRoute from "./ProductInfoRoute/ProductInfoRoute";
 import Footer from "../../../CommonComponents/Footer/Footer";
 import { FaCartArrowDown, FaPencilAlt, FaStar } from "react-icons/fa";
 import { GiDiscussion } from "react-icons/gi";
+import ReactLoading from "react-loading";
 
 function ProductInfo() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then((product) => {
         setProduct(product);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
+        setLoading(false);
       });
   }, [id]);
 
-  if (!product) {
-    return <div>Loading...</div>;
+  if (loading) {
+    return (
+      <ReactLoading
+        height={200}
+        width={200}
+        className="loading"
+        type={"bars"}
+        color={"#000"}
+      />
+    );
   }
 
   return (
@@ -52,7 +64,9 @@ function ProductInfo() {
             <FaPencilAlt className="product-info__description-icon" />
             {product.description}
           </p>
-          <button className="product-info__category">#{product.category}</button>
+          <button className="product-info__category">
+            #{product.category}
+          </button>
           <div className="product-info__inputs">
             <input
               type="number"

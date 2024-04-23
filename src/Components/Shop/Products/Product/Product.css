@@ -77,9 +77,11 @@
 
 .product__image:hover + .product__link-text {
   opacity: 1;
+
 }
 .product__image:hover {
   opacity: 0.2;
+  cursor: pointer;
 }
 
 .product__info {

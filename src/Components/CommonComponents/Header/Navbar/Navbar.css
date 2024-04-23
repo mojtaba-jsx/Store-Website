@@ -56,6 +56,10 @@
   text-decoration: none;
   font-family: "roboto-medium", Courier, monospace;
   color: black;
+
+}
+.navbar__menu__list__item-link{
+  padding: 0.8rem 1rem;
 }
 
 .navbar__btns {
