@@ -1,6 +1,6 @@
 // !Importe
-import React from "react";
-import { Link } from "react-router-dom";
+import React,{useState} from "react";
+import { Link, NavLink } from "react-router-dom";
 
 import "./Navbar.css";
 // !icons
@@ -8,9 +8,12 @@ import { FaShopify } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
 import { FaBasketShopping } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
+import { IoMenu } from "react-icons/io5";
 
 // !Componnet
 function Navbar() {
+  const [searchValue, setSearchValue] = useState("");
   // !ElementsRef
   const mobileMenuRef = React.createRef();
   const searchBoxRef = React.createRef();
@@ -63,24 +66,34 @@ function Navbar() {
         <div className="navbar__menu">
           <ul className="navbar__menu__list">
             <li className="navbar__menu__list__item">
-              <Link to={'/'} className="navbar__menu__list__item-link">
+              <NavLink
+                to={"/"}
+                className={(link) =>
+                  link.isActive
+                    ? "active navbar__menu__list__item-link"
+                    : "navbar__menu__list__item-link"
+                }
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className="navbar__menu__list__item">
-              <Link to={'/shop'} className="navbar__menu__list__item-link">
+              <NavLink to={"/shop"} className="navbar__menu__list__item-link">
                 Shop
-              </Link>
+              </NavLink>
             </li>
             <li className="navbar__menu__list__item">
-              <Link to={'/blog'} className="navbar__menu__list__item-link">
+              <NavLink to={"/blog"} className="navbar__menu__list__item-link">
                 Blog
-              </Link>
+              </NavLink>
             </li>
             <li className="navbar__menu__list__item">
-              <Link to={'/contact'} className="navbar__menu__list__item-link">
+              <NavLink
+                to={"/contact"}
+                className="navbar__menu__list__item-link"
+              >
                 Contact
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -153,24 +166,13 @@ function Navbar() {
 
         <div className="search-modal" ref={searchBoxRef}>
           <span className="modal__close-btn" onClick={closeSearchModal}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18 18 6M6 6l12 12"
-              />
-            </svg>
+            <IoClose />
           </span>
           <div className="search-modal__wrapper">
             <span className="search-modal__title">Search Prodcuts </span>
             <input
+              onChange={(e) => setSearchValue(e.target.value)}
+              value={searchValue}
               type="text"
               className="search-modal__input"
               placeholder="Enter Product Name"
@@ -181,20 +183,7 @@ function Navbar() {
 
         <div className="basket" ref={basketRef}>
           <span className="modal__close-btn" onClick={closeBasketModal}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18 18 6M6 6l12 12"
-              />
-            </svg>
+            <IoClose />
           </span>
           <div className="basket__wrapper">
             <span className="basket__title">Products List</span>
@@ -265,20 +254,7 @@ function Navbar() {
           className="navbar__mobile-menu__btn"
           onClick={showAndHideMobileMenu}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
-          </svg>
+          <IoMenu />
         </span>
       </div>
     </div>

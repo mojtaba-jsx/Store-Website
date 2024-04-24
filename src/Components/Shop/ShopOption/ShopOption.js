@@ -1,9 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
 import "./ShopOption.css";
 import { LuSettings2 } from "react-icons/lu";
 import { RiLayoutGridFill } from "react-icons/ri";
 import { TfiLayoutListThumbAlt } from "react-icons/tfi";
 function ShopOption() {
+  const [numberValue, setNumberValue] = useState("");
+
   return (
     <div className="shop-option">
       <div className="container">
@@ -32,7 +34,7 @@ function ShopOption() {
             Showing 1–16 of 32 results
           </span>
           <span className="shop-option__right-show">
-            Show <input type="number" value={1} className="shop-option__right-show-input" />
+            Show <input  onChange={(e) => setNumberValue(e.target.value)} type="number" value={1} className="shop-option__right-show-input" />
           </span>
         </div>
       </div>
