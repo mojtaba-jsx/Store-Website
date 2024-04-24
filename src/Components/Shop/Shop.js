@@ -4,7 +4,6 @@ import Header from '../CommonComponents/Header/Header'
 import ShopLanding from './ShopLanding/ShopLanding'
 import ShopOption from './ShopOption/ShopOption'
 import Products from './Products/Products'
-import Pagination from './Pagination/Pagination'
 import ShopBenefits from './ShopBenefits/ShopBenefits'
 import Footer from '../CommonComponents/Footer/Footer'
  function Shop() {
@@ -14,7 +13,6 @@ import Footer from '../CommonComponents/Footer/Footer'
       <ShopLanding/>
       <ShopOption/>
       <Products/>
-      <Pagination/>
       <ShopBenefits/>
       <Footer/>
       

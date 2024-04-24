@@ -1,10 +1,37 @@
-.container{
-    max-width: 1400px;
-    margin: 0 auto;
+@font-face {
+  font-family: "josefin";
+  src: url("../../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf");
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.products__wrapper{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.products__wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.products-btn {
+  display: block;
+  padding: 1rem 8rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  outline: none;
+  font-family: "josefin", Courier, monospace;
+  font-size: 1.4rem;
+  border-radius: 1rem;
+  background-color: #b88e2f;
+  color: #ffff;
+  border: none;
+  transition: all 140ms ease-in;
+cursor: pointer;
+}
+.products-btn:hover{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.loading-spinner{
+    margin: 0 auto;
 }
