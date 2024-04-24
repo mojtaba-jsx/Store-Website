@@ -1,51 +1,40 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import "./ProductInfo.css";
-import Navbar from "../../../CommonComponents/Header/Navbar/Navbar";
-import ProductInfoRoute from "./ProductInfoRoute/ProductInfoRoute";
-import Footer from "../../../CommonComponents/Footer/Footer";
-import { FaCartArrowDown, FaPencilAlt, FaStar } from "react-icons/fa";
-import { GiDiscussion } from "react-icons/gi";
-import ReactLoading from "react-loading"; // اضافه کردن این خط
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
-function ProductInfo() {
-  const { id } = useParams();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true); // اضافه کردن این خط
+import "./Product.css";
+import { FaStar } from "react-icons/fa";
+import { BiShow } from "react-icons/bi";
+import { FaShoppingBasket } from "react-icons/fa";
 
-  useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then((product) => {
-        setProduct(product);
-        setLoading(false); // اضافه کردن این خط
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setLoading(false); // اضافه کردن این خط
-      });
-  }, [id]);
+function Product(props) {
+  const { image, title, price, rating } = props;
+  const location = useLocation();
 
-  if (loading) { // اضافه کردن این بخش
-    return <ReactLoading type={"spin"} color={"#000"} />; // اضافه کردن این خط
-  }
-
-  if (!product) {
-    return <div>Loading...</div>;
-  }
-
-  // بقیه کد‌ها
+  const showButton = location.pathname !== "/";
 
   return (
-    <div className="product-info">
-      <Navbar />
-      <ProductInfoRoute />
-      <div className="product-info__wrapper">
-        {/* بقیه کد‌ها */}
+    <div className="product">
+      <img src={image} alt="product" className="product__image" />
+      <Link to="/" className="product__link-text">
+        Show Info
+        <BiShow className="product__link-text-icon" />
+      </Link>
+
+      <div className="product__info">
+        <span className="product__info-name">{title}</span>
+        <span className="product__info-price">${price}</span>
+        <span className="product__info-rate">
+          {rating.rate} <FaStar className="product__info-rate-icon" />
+        </span>
       </div>
-      <Footer />
+      {showButton && (
+        <button className="product__btn">
+          Add to Cart
+          <FaShoppingBasket className="product__btn-icon" />
+        </button>
+      )}
     </div>
   );
 }
 
-export default ProductInfo;
+export default Product;

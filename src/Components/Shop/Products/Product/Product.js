@@ -1,33 +1,39 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import "./Product.css";
 import { FaStar } from "react-icons/fa";
 import { BiShow } from "react-icons/bi";
 import { FaShoppingBasket } from "react-icons/fa";
+
 function Product(props) {
+  const { image, title, price, rating } = props;
+  const location = useLocation();
+
+  const showButton = location.pathname !== "/";
+  const productClass = location.pathname === "/" ? "product product--short" : "product";
+
   return (
-    <div className="product">
-      <img src={props.image} alt="product" className="product__image" />
-      <span className="product__link-text">
+    <div className={productClass}>
+      <img src={image} alt="product" className="product__image" />
+      <Link to="/" className="product__link-text">
         Show Info
         <BiShow className="product__link-text-icon" />
-      </span>
+      </Link>
 
       <div className="product__info">
-        <span className="product__info-name">{props.title}</span>
-
-        <span className="product__info-price">${props.price}</span>
-
+        <span className="product__info-name">{title}</span>
+        <span className="product__info-price">${price}</span>
         <span className="product__info-rate">
-          {props.rating.rate}
-          {props.rate} <FaStar className="product__info-rate-icon" />
+          {rating.rate} <FaStar className="product__info-rate-icon" />
         </span>
       </div>
-      <button className="product__btn">
-        Add To
-        <FaShoppingBasket className="product__btn-icon" />
-      </button>
+      {showButton && (
+        <button className="product__btn">
+          Add to Cart
+          <FaShoppingBasket className="product__btn-icon" />
+        </button>
+      )}
     </div>
   );
 }

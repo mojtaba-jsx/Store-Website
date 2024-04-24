@@ -52,7 +52,9 @@
   margin-top: 1rem;
   line-height: 1.4rem;
 }
-
+.button-link {
+  text-decoration: none;
+}
 .landing-btn {
   margin-top: 2rem;
   padding: 1.2rem 4rem;
@@ -63,7 +65,17 @@
   background-color: #b88e2f;
   color: #ffff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 140ms ease-in;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.landing-btn:hover {
+  background-color: #2ec1ac;
+}
+.landing-btn-icon {
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 /*! Responsive */
@@ -90,7 +102,7 @@
   .arrival-subtitle {
     font-size: 2rem;
   }
-  .arrival-text{
+  .arrival-text {
     font-size: 1rem;
   }
 }
@@ -101,10 +113,10 @@
   .arrival-subtitle {
     font-size: 2rem;
   }
-  .arrival-text{
+  .arrival-text {
     font-size: 1rem;
   }
-  .arrival{
+  .arrival {
     right: 2rem;
   }
 }
