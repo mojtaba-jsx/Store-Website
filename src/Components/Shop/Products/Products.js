@@ -14,24 +14,53 @@ function Products() {
   const [allProductsLoaded, setAllProductsLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [category, setCategory] = useState("all");
+  const [pageNumber, setPageNumber] = useState(1);
+  const [totalProductsCount, setTotalProductsCount] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://fakestoreapi.com/products?limit=${visibleProducts}`)
-      .then((res) => res.json())
+    const limit = visibleProducts;
+    const offset = (pageNumber - 1) * visibleProducts;
+    let apiUrl;
+    if (category === "all") {
+      apiUrl = `https://fakestoreapi.com/products?limit=${limit}&offset=${offset}`;
+    } else {
+      apiUrl = `https://fakestoreapi.com/products/category/${category}?limit=${limit}&offset=${offset}`;
+    }
+    fetch(apiUrl)
+      .then((res) => {
+        const totalCount = res.headers.get('X-Total-Count');
+        setTotalProductsCount(Number(totalCount));
+        return res.json();
+      })
       .then((products) => {
         if (products.length < visibleProducts) {
           setAllProductsLoaded(true);
         }
-        setProductsDatas(products);
+        setProductsDatas((prevProducts) => {
+          const newProducts = products.filter(
+            (product) => !prevProducts.some((prevProduct) => prevProduct.id === product.id)
+          );
+          return [...prevProducts, ...newProducts];
+        });
         setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
         setIsLoading(false);
       });
-  }, [visibleProducts]);
+  }, [visibleProducts, category, pageNumber]);
+
+  useEffect(() => {
+    if (category === "all") {
+      setNumberValue("6");
+    } else {
+      setNumberValue("6");
+      setVisibleProducts(6);
+    }
+  }, [category]);
 
   const handleProductClick = useCallback(
     (productId) => {
@@ -42,6 +71,7 @@ function Products() {
 
   const loadMoreProducts = () => {
     setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 6);
+    setPageNumber((prevPageNumber) => prevPageNumber + 1);
   };
 
   const handleInputChange = (e) => {
@@ -55,7 +85,20 @@ function Products() {
       setNumberValue("");
       setVisibleProducts(0);
       setAllProductsLoaded(true);
-      setErrorMessage("تعداد محصولات بیش از حد مجاز است");
+      setErrorMessage("The amount of input is greater than the number of products");
+    }
+  };
+
+  const handleCategoryChange = (e) => {
+    const selectedCategory = e.target.value;
+    setCategory(selectedCategory);
+    setPageNumber(1);
+    setProductsDatas([]);
+    if (selectedCategory === "all") {
+      setNumberValue("6");
+    } else {
+      setNumberValue("6");
+      setVisibleProducts(6);
     }
   };
 
@@ -68,14 +111,16 @@ function Products() {
               <span className="shop-option__category-icon">
                 <LuSettings2 className="shop-option__category-icon-tag" />
               </span>
-              <select className="shop-option__category-select">
-                <option value="Category" >
-                  Category
-                </option>
+              <select 
+                className="shop-option__category-select"
+                onChange={handleCategoryChange}
+                value={category}
+              >
+                <option value="all">All Products</option>
                 <option value="jewelery">Jewelery</option>
                 <option value="electronics">Electronics</option>
-                <option value="men's clothing">Mens Clothing</option>
-                <option value="women's clothing">Woman Clothing</option>
+                <option value="men's clothing">Men's Clothing</option>
+                <option value="women's clothing">Women's Clothing</option>
               </select>
             </div>
 
@@ -88,7 +133,7 @@ function Products() {
             </span>
 
             <span className="shop-option-result-number">
-              Showing {visibleProducts} of 20 results
+              Showing {productsDatas.length} of {category === "all" ? totalProductsCount : 20} results
             </span>
             <span className="shop-option__right-show">
               Show{" "}
@@ -97,6 +142,7 @@ function Products() {
                 type="number"
                 value={numberValue}
                 className="shop-option__right-show-input"
+                disabled={category !== "all"}  // Disable input if category is not "all"
               />
             </span>
           </div>
@@ -114,7 +160,7 @@ function Products() {
             ) : numberValue === "0" ? (
               <div className="no-products-message">No products to display.</div>
             ) : (
-              <div className="error-message">The amount of input is greater than the number of products</div>
+              <div className="error-message">{errorMessage}</div>
             )}
           </div>
           {numberValue !== "0" && (
