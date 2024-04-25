@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Products.css";
 import Product from "./Product/Product";
@@ -9,10 +9,11 @@ import { TfiLayoutListThumbAlt } from "react-icons/tfi";
 
 function Products() {
   const [productsDatas, setProductsDatas] = useState([]);
-  const [numberValue, setNumberValue] = useState("");
+  const [numberValue, setNumberValue] = useState("6");
   const [visibleProducts, setVisibleProducts] = useState(6);
   const [allProductsLoaded, setAllProductsLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,9 +33,12 @@ function Products() {
       });
   }, [visibleProducts]);
 
-  const handleProductClick = (productId) => {
-    navigate(`/shop/product/${productId}`);
-  };
+  const handleProductClick = useCallback(
+    (productId) => {
+      navigate(`/shop/product/${productId}`);
+    },
+    [navigate]
+  );
 
   const loadMoreProducts = () => {
     setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 6);
@@ -42,11 +46,16 @@ function Products() {
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    setNumberValue(value);
-    if (value !== "") {
+    if (value <= 20) {
+      setNumberValue(value);
       setVisibleProducts(Number(value));
+      setAllProductsLoaded(Number(value) === 20);
+      setErrorMessage("");
     } else {
-      setVisibleProducts(6);
+      setNumberValue("");
+      setVisibleProducts(0);
+      setAllProductsLoaded(true);
+      setErrorMessage("تعداد محصولات بیش از حد مجاز است");
     }
   };
 
@@ -60,15 +69,18 @@ function Products() {
                 <LuSettings2 className="shop-option__category-icon-tag" />
               </span>
               <select className="shop-option__category-select">
-                <option value="Category">Category</option>
-                <option value="FilterBy">Jewelery</option>
-                <option value="FilterBy">Electronics</option>
-                <option value="FilterBy">Shirts</option>
+                <option value="Category" >
+                  Category
+                </option>
+                <option value="jewelery">Jewelery</option>
+                <option value="electronics">Electronics</option>
+                <option value="men's clothing">Mens Clothing</option>
+                <option value="women's clothing">Woman Clothing</option>
               </select>
             </div>
 
             <span className="shop-option__square">
-              <RiLayoutGridFill className="shop-option__square-icon"  />
+              <RiLayoutGridFill className="shop-option__square-icon" />
             </span>
 
             <span className="shop-option__list">
@@ -93,35 +105,36 @@ function Products() {
       <div className="products">
         <div className="container">
           <div className="products__wrapper">
-            {productsDatas.map((product) => (
-              <div
-                key={product.id}
-                onClick={() => handleProductClick(product.id)}
-              >
-                <Product {...product} />
-              </div>
-            ))}
-          </div>
-          <button
-            className="products-btn"
-            onClick={loadMoreProducts}
-            disabled={allProductsLoaded || isLoading}
-          >
-            {isLoading ? (
-              <>
-                <span>Loading</span>
-                <RingLoader
-                  className="loading-spinner"
-                  color={"#ffffff"}
-                  size={28}
-                />
-              </>
-            ) : allProductsLoaded ? (
-              "All Products Have Been Displayed :)"
+            {numberValue !== "" && numberValue !== "0" ? (
+              productsDatas.map((product) => (
+                <div key={product.id} onClick={() => handleProductClick(product.id)}>
+                  <Product {...product} />
+                </div>
+              ))
+            ) : numberValue === "0" ? (
+              <div className="no-products-message">No products to display.</div>
             ) : (
-              "Show More"
+              <div className="error-message">The amount of input is greater than the number of products</div>
             )}
-          </button>
+          </div>
+          {numberValue !== "0" && (
+            <button
+              className="products-btn"
+              onClick={loadMoreProducts}
+              disabled={allProductsLoaded || isLoading}
+            >
+              {isLoading ? (
+                <>
+                  <span>Loading</span>
+                  <RingLoader className="loading-spinner" color={"#ffffff"} size={28} />
+                </>
+              ) : allProductsLoaded ? (
+                "All Products Have Been Displayed :)"
+              ) : (
+                "Show More"
+              )}
+            </button>
+          )}
         </div>
       </div>
     </>
