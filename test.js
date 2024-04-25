@@ -1,40 +1,52 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import "./ShopOption.css";
+import { LuSettings2 } from "react-icons/lu";
+import { RiLayoutGridFill } from "react-icons/ri";
+import { TfiLayoutListThumbAlt } from "react-icons/tfi";
 
-import "./Product.css";
-import { FaStar } from "react-icons/fa";
-import { BiShow } from "react-icons/bi";
-import { FaShoppingBasket } from "react-icons/fa";
+function ShopOption({ onShowNumberChange }) {
+  const [showNumber, setShowNumber] = useState(1);
 
-function Product(props) {
-  const { image, title, price, rating } = props;
-  const location = useLocation();
-
-  const showButton = location.pathname !== "/";
+  const handleShowNumberChange = (e) => {
+    const value = parseInt(e.target.value);
+    setShowNumber(value);
+    onShowNumberChange(value);
+  };
 
   return (
-    <div className="product">
-      <img src={image} alt="product" className="product__image" />
-      <Link to="/" className="product__link-text">
-        Show Info
-        <BiShow className="product__link-text-icon" />
-      </Link>
+    <div className="shop-option">
+      <div className="container">
+        <div className="shop-option__wrapper">
+          <div className="shop-option__category">
+            <span className="shop-option__category-icon">
+              <LuSettings2 className="shop-option__category-icon-tag" />
+            </span>
+            <select className="shop-option__category-select">
+              <option value="Category">Category</option>
+              <option value="Jewelery">Jewelery</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Shirts">Shirts</option>
+            </select>
+          </div>
 
-      <div className="product__info">
-        <span className="product__info-name">{title}</span>
-        <span className="product__info-price">${price}</span>
-        <span className="product__info-rate">
-          {rating.rate} <FaStar className="product__info-rate-icon" />
-        </span>
+          <span className="shop-option__square">
+            <RiLayoutGridFill className="shop-option__square-icon" />
+          </span>
+
+          <span className="shop-option__list">
+            <TfiLayoutListThumbAlt className="shop-option__list-icon" />
+          </span>
+
+          <span className="shop-option-result-number">
+            Showing 1–16 of 32 results
+          </span>
+          <span className="shop-option__right-show">
+            Show <input onChange={handleShowNumberChange} type="number" value={showNumber} className="shop-option__right-show-input" />
+          </span>
+        </div>
       </div>
-      {showButton && (
-        <button className="product__btn">
-          Add to Cart
-          <FaShoppingBasket className="product__btn-icon" />
-        </button>
-      )}
     </div>
   );
 }
 
-export default Product;
+export default ShopOption;
