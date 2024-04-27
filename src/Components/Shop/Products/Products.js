@@ -17,10 +17,19 @@ function Products() {
   const [category, setCategory] = useState("all");
   const [pageNumber, setPageNumber] = useState(1);
   const [totalProductsCount, setTotalProductsCount] = useState(0);
+  const [loadingCategory, setLoadingCategory] = useState(false); // New state for loading between categories
   const navigate = useNavigate();
 
   useEffect(() => {
+    const selectedCategory = sessionStorage.getItem("selectedCategory");
+    if (selectedCategory) {
+      setCategory(selectedCategory);
+    }
+  }, []);
+
+  useEffect(() => {
     setIsLoading(true);
+    setLoadingCategory(true); // Set loading between categories to true
     const limit = visibleProducts;
     const offset = (pageNumber - 1) * visibleProducts;
     let apiUrl;
@@ -39,17 +48,14 @@ function Products() {
         if (products.length < visibleProducts) {
           setAllProductsLoaded(true);
         }
-        setProductsDatas((prevProducts) => {
-          const newProducts = products.filter(
-            (product) => !prevProducts.some((prevProduct) => prevProduct.id === product.id)
-          );
-          return [...prevProducts, ...newProducts];
-        });
+        setProductsDatas(products);
         setIsLoading(false);
+        setLoadingCategory(false); // Set loading between categories to false after products are loaded
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
         setIsLoading(false);
+        setLoadingCategory(false); // Set loading between categories to false if there's an error
       });
   }, [visibleProducts, category, pageNumber]);
 
@@ -91,6 +97,7 @@ function Products() {
 
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
+    sessionStorage.setItem("selectedCategory", selectedCategory);
     setCategory(selectedCategory);
     setPageNumber(1);
     setProductsDatas([]);
@@ -123,7 +130,6 @@ function Products() {
                 <option value="women's clothing">Women's Clothing</option>
               </select>
             </div>
-
             <span className="shop-option__square">
               <RiLayoutGridFill className="shop-option__square-icon" />
             </span>
@@ -148,22 +154,25 @@ function Products() {
           </div>
         </div>
       </div>
+
       <div className="products">
         <div className="container">
           <div className="products__wrapper">
-            {numberValue !== "" && numberValue !== "0" ? (
+            {loadingCategory ? ( // Check if loading between categories
+              <div className="loading-category">
+                <RingLoader color={"#ffffff"} size={64} />
+              </div>
+            ) : productsDatas.length > 0 ? (
               productsDatas.map((product) => (
                 <div key={product.id} onClick={() => handleProductClick(product.id)}>
                   <Product {...product} />
                 </div>
               ))
-            ) : numberValue === "0" ? (
-              <div className="no-products-message">No products to display.</div>
             ) : (
-              <div className="error-message">{errorMessage}</div>
+              <div className="no-products-message">No products to display.</div>
             )}
           </div>
-          {numberValue !== "0" && (
+          {productsDatas.length > 0 && (
             <button
               className="products-btn"
               onClick={loadMoreProducts}
@@ -172,7 +181,7 @@ function Products() {
               {isLoading ? (
                 <>
                   <span>Loading</span>
-                  <RingLoader className="loading-spinner" color={"#ffffff"} size={28} />
+                  <RingLoader className="loading-spinner" color={"black"} size={28} />
                 </>
               ) : allProductsLoaded ? (
                 "All Products Have Been Displayed :)"

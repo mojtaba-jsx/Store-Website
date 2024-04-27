@@ -24,6 +24,10 @@
   margin-bottom: 2rem;
   color: #b88e2f;
 }
+.category-box-link{
+  text-decoration: none;
+  color: #b88e2f;
+}
 
 @media screen and (max-width: 1400px) {
 }
