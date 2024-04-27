@@ -15,7 +15,7 @@ function Category() {
       <h2 className="category-title">Browse The Category <BiCategoryAlt /> </h2>
       <div className="category-box">
         {category.map((item) => (
-          <CategoryItem  key={item.id} {...item} />
+          <CategoryItem  key={item.id} {...item}  />
         ))}
       </div>
     </div>

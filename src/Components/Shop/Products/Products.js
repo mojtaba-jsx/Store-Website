@@ -85,7 +85,7 @@ function Products() {
       setNumberValue("");
       setVisibleProducts(0);
       setAllProductsLoaded(true);
-      setErrorMessage("The amount of input is greater than the number of products");
+      setErrorMessage("The Amount Of Input is Greater Than The Number Of Products");
     }
   };
 
@@ -133,7 +133,7 @@ function Products() {
             </span>
 
             <span className="shop-option-result-number">
-              Showing {productsDatas.length} of {category === "all" ? totalProductsCount : 20} results
+              Showing {productsDatas.length} of 20 results
             </span>
             <span className="shop-option__right-show">
               Show{" "}
