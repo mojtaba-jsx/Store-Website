@@ -3,6 +3,7 @@
   src: url("../../../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf");
 }
 .product {
+  position: relative;
   width: 18rem;
   height: 34rem;
   display: flex;
@@ -17,6 +18,7 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   transition: all 140ms ease-in;
 }
+
 .product--short {
   height: 30rem;
 }
@@ -32,7 +34,7 @@
 }
 
 .product__image.disable-hover {
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 .product__link {
@@ -86,7 +88,6 @@
 
 .product__image:hover + .product__link-text {
   opacity: 1;
-
 }
 .product__image:hover {
   opacity: 0.2;
@@ -142,7 +143,7 @@
   border-radius: 1rem;
   border: none;
   outline: none;
-  background-color: #2ec1ac;
+  background-color: #b88e2f;
   margin-top: 1rem;
   cursor: pointer;
   transition: all 140ms ease-in;
@@ -152,4 +153,56 @@
   transform: scale(1.01);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.product__btn {
+  width: 8rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  border-top-right-radius: 1rem;
+  transition: all 140ms ease-in;
+}
+.product__btn:hover {
+  background-color: #2ec1ac;
+}
+
+.product__btn-text {
+  display: none;
+  transition: all 140ms ease-in;
+  font-family: "josefin", Courier, monospace;
+  font-weight: bold;
+  color: #ffff;
+}
+
+.product__btn:hover .product__btn-text {
+  display: inline;
+}
+
+.product__btn-text {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product__btn:hover .product__btn-text {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.product__btn-text {
+  opacity: 0; /* مخفی کردن متن در حالت عادی */
+  animation: fadeIn 0.3s ease forwards; /* اعمال انیمیشن با استفاده از کی‌فریم fadeIn */
+}
+
+.product__btn:hover .product__btn-text {
+  opacity: 1; /* نمایش متن هنگامی که روی دکمه هوور می‌کنید */
 }

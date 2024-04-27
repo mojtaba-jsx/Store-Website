@@ -4,19 +4,24 @@ import { Link, useLocation } from "react-router-dom";
 import "./Product.css";
 import { FaStar } from "react-icons/fa";
 import { BiShow } from "react-icons/bi";
-import { FaShoppingBasket } from "react-icons/fa";
+import { BsCartCheckFill } from "react-icons/bs";
 
 function Product(props) {
   const { image, title, price, rating } = props;
   const location = useLocation();
 
   const showButton = location.pathname !== "/";
-  const productClass = location.pathname === "/" ? "product product--short" : "product";
+  const productClass =
+    location.pathname === "/" ? "product product--short" : "product";
   const disableHover = location.pathname === "/";
 
   return (
     <div className={productClass}>
-      <img src={image} alt="product" className={`product__image ${disableHover ? 'disable-hover' : ''}`} />
+      <img
+        src={image}
+        alt="product"
+        className={`product__image ${disableHover ? "disable-hover" : ""}`}
+      />
       {location.pathname !== "/" && (
         <Link to="/" className="product__link-text">
           Show Info
@@ -33,8 +38,8 @@ function Product(props) {
       </div>
       {showButton && (
         <button className="product__btn">
-          Add to Cart
-          <FaShoppingBasket className="product__btn-icon" />
+          <span className="product__btn-text">Add To</span>
+          <BsCartCheckFill className="product__btn-icon" />
         </button>
       )}
     </div>

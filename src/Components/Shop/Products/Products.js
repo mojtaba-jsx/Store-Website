@@ -181,7 +181,7 @@ function Products() {
               {isLoading ? (
                 <>
                   <span>Loading</span>
-                  <RingLoader className="loading-spinner" color={"black"} size={28} />
+                  <RingLoader className="loading-spinner" color={"#b88e2f"} size={28} />
                 </>
               ) : allProductsLoaded ? (
                 "All Products Have Been Displayed :)"
