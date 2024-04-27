@@ -12,14 +12,17 @@ function Product(props) {
 
   const showButton = location.pathname !== "/";
   const productClass = location.pathname === "/" ? "product product--short" : "product";
+  const disableHover = location.pathname === "/";
 
   return (
     <div className={productClass}>
-      <img src={image} alt="product" className="product__image" />
-      <Link to="/" className="product__link-text">
-        Show Info
-        <BiShow className="product__link-text-icon" />
-      </Link>
+      <img src={image} alt="product" className={`product__image ${disableHover ? 'disable-hover' : ''}`} />
+      {location.pathname !== "/" && (
+        <Link to="/" className="product__link-text">
+          Show Info
+          <BiShow className="product__link-text-icon" />
+        </Link>
+      )}
 
       <div className="product__info">
         <span className="product__info-name">{title}</span>
