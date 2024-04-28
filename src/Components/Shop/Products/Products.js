@@ -7,7 +7,7 @@ import { LuSettings2 } from "react-icons/lu";
 import { RiLayoutGridFill } from "react-icons/ri";
 import { TfiLayoutListThumbAlt } from "react-icons/tfi";
 
-function Products() {
+function Products({ displayMode, setDisplayMode }) {
   const [productsDatas, setProductsDatas] = useState([]);
   const [numberValue, setNumberValue] = useState("6");
   const [visibleProducts, setVisibleProducts] = useState(6);
@@ -130,11 +130,21 @@ function Products() {
                 <option value="women's clothing">Women's Clothing</option>
               </select>
             </div>
-            <span className="shop-option__square">
+            <span
+              className={`shop-option__square ${
+                displayMode === "grid" ? "active" : ""
+              }`}
+              onClick={() => setDisplayMode("grid")}
+            >
               <RiLayoutGridFill className="shop-option__square-icon" />
             </span>
 
-            <span className="shop-option__list">
+            <span
+              className={`shop-option__list ${
+                displayMode === "list" ? "active" : ""
+              }`}
+              onClick={() => setDisplayMode("list")}
+            >
               <TfiLayoutListThumbAlt className="shop-option__list-icon" />
             </span>
 
@@ -155,43 +165,41 @@ function Products() {
         </div>
       </div>
 
-      <div className="products">
-        <div className="container">
-          <div className="products__wrapper">
-            {loadingCategory ? ( // Check if loading between categories
-              <div className="loading-category">
-                <RingLoader color={"#ffffff"} size={64} />
-              </div>
-            ) : productsDatas.length > 0 ? (
-              productsDatas.map((product) => (
-                <div key={product.id} onClick={() => handleProductClick(product.id)}>
-                  <Product {...product} />
-                </div>
-              ))
-            ) : (
-              <div className="no-products-message">No products to display.</div>
-            )}
+      <div className={`products__wrapper ${
+        displayMode === "grid" ? "products-grid" : "products-list"
+      }`}>
+        {loadingCategory ? ( // Check if loading between categories
+          <div className="loading-category">
+            <RingLoader color={"#ffffff"} size={64} />
           </div>
-          {productsDatas.length > 0 && (
-            <button
-              className="products-btn"
-              onClick={loadMoreProducts}
-              disabled={allProductsLoaded || isLoading}
-            >
-              {isLoading ? (
-                <>
-                  <span>Loading</span>
-                  <RingLoader className="loading-spinner" color={"#b88e2f"} size={28} />
-                </>
-              ) : allProductsLoaded ? (
-                "All Products Have Been Displayed :)"
-              ) : (
-                "Show More"
-              )}
-            </button>
-          )}
-        </div>
+        ) : productsDatas.length > 0 ? (
+          productsDatas.map((product) => (
+            <div key={product.id} onClick={() => handleProductClick(product.id)}>
+              <Product {...product} className='product-box' />
+            </div>
+          ))
+        ) : (
+          <div className="no-products-message">No products to display.</div>
+        )}
       </div>
+      {productsDatas.length > 0 && (
+        <button
+          className="products-btn"
+          onClick={loadMoreProducts}
+          disabled={allProductsLoaded || isLoading}
+        >
+          {isLoading ? (
+            <>
+              <span>Loading</span>
+              <RingLoader className="loading-spinner" color={"#b88e2f"} size={28} />
+            </>
+          ) : allProductsLoaded ? (
+            "All Products Have Been Displayed :)"
+          ) : (
+            "Show More"
+          )}
+        </button>
+      )}
     </>
   );
 }

@@ -9,14 +9,16 @@ import { BsCartCheckFill } from "react-icons/bs";
 function Product(props) {
   const { image, title, price, rating } = props;
   const location = useLocation();
+  const displayMode = props.displayMode || 'grid'; // اضافه کردن مقدار پیش‌فرض برای displayMode
 
   const showButton = location.pathname !== "/";
   const productClass =
     location.pathname === "/" ? "product product--short" : "product";
   const disableHover = location.pathname === "/";
+  const listMode = displayMode === "list"; // اضافه کردن متغیر listMode
 
   return (
-    <div className={productClass}>
+    <div className={`${productClass} ${listMode ? "list-mode" : ""}`}>
       <img
         src={image}
         alt="product"
