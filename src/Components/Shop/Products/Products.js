@@ -40,7 +40,7 @@ function Products({ displayMode, setDisplayMode }) {
     }
     fetch(apiUrl)
       .then((res) => {
-        const totalCount = res.headers.get('X-Total-Count');
+        const totalCount = res.headers.get("X-Total-Count");
         setTotalProductsCount(Number(totalCount));
         return res.json();
       })
@@ -91,7 +91,9 @@ function Products({ displayMode, setDisplayMode }) {
       setNumberValue("");
       setVisibleProducts(0);
       setAllProductsLoaded(true);
-      setErrorMessage("The Amount Of Input is Greater Than The Number Of Products");
+      setErrorMessage(
+        "The Amount Of Input is Greater Than The Number Of Products"
+      );
     }
   };
 
@@ -118,7 +120,7 @@ function Products({ displayMode, setDisplayMode }) {
               <span className="shop-option__category-icon">
                 <LuSettings2 className="shop-option__category-icon-tag" />
               </span>
-              <select 
+              <select
                 className="shop-option__category-select"
                 onChange={handleCategoryChange}
                 value={category}
@@ -158,24 +160,29 @@ function Products({ displayMode, setDisplayMode }) {
                 type="number"
                 value={numberValue}
                 className="shop-option__right-show-input"
-                disabled={category !== "all"}  // Disable input if category is not "all"
+                disabled={category !== "all"} // Disable input if category is not "all"
               />
             </span>
           </div>
         </div>
       </div>
 
-      <div className={`products__wrapper ${
-        displayMode === "grid" ? "products-grid" : "products-list"
-      }`}>
+      <div
+        className={`products__wrapper ${
+          displayMode === "grid" ? "products-grid" : "products-list"
+        }`}
+      >
         {loadingCategory ? ( // Check if loading between categories
           <div className="loading-category">
             <RingLoader color={"#ffffff"} size={64} />
           </div>
         ) : productsDatas.length > 0 ? (
           productsDatas.map((product) => (
-            <div key={product.id} onClick={() => handleProductClick(product.id)}>
-              <Product {...product} className='product-box' />
+            <div
+              key={product.id}
+              onClick={() => handleProductClick(product.id)}
+            >
+              <Product {...product} className="product-box" />
             </div>
           ))
         ) : (
@@ -191,7 +198,11 @@ function Products({ displayMode, setDisplayMode }) {
           {isLoading ? (
             <>
               <span>Loading</span>
-              <RingLoader className="loading-spinner" color={"#b88e2f"} size={28} />
+              <RingLoader
+                className="loading-spinner"
+                color={"#b88e2f"}
+                size={28}
+              />
             </>
           ) : allProductsLoaded ? (
             "All Products Have Been Displayed :)"

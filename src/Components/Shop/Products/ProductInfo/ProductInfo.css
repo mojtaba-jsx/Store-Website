@@ -13,6 +13,9 @@
   margin-top: 2rem;
   margin-bottom: 4rem;
 }
+.product-info__left{
+  height: 28rem;
+}
 
 .product-info__left-image {
   width: 20rem;

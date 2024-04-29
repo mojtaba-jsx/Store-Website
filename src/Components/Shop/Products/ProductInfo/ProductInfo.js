@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./ProductInfo.css";
 import Navbar from "../../../CommonComponents/Header/Navbar/Navbar";
 import ProductInfoRoute from "./ProductInfoRoute/ProductInfoRoute";
@@ -12,6 +12,7 @@ function ProductInfo() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -25,6 +26,11 @@ function ProductInfo() {
         setLoading(false);
       });
   }, [id]);
+
+  const handleCategoryClick = (category) => {
+    sessionStorage.setItem("selectedCategory", category);
+    navigate("/shop");
+  };
 
   if (loading) {
     return (
@@ -64,7 +70,10 @@ function ProductInfo() {
             <FaPencilAlt className="product-info__description-icon" />
             {product.description}
           </p>
-          <button className="product-info__category">
+          <button
+            className="product-info__category"
+            onClick={() => handleCategoryClick(product.category)}
+          >
             #{product.category}
           </button>
           <div className="product-info__inputs">
