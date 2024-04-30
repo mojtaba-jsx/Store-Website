@@ -1,21 +1,18 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-
 import "./Product.css";
 import { FaStar } from "react-icons/fa";
 import { BiShow } from "react-icons/bi";
 import { BsCartCheckFill } from "react-icons/bs";
 
-function Product(props) {
-  const { image, title, price, rating } = props;
+function Product({ image, title, price, rating, productId, handleProductClick, handleAddToCart }) {
   const location = useLocation();
-  const displayMode = props.displayMode || 'grid'; // اضافه کردن مقدار پیش‌فرض برای displayMode
+  const displayMode = 'grid';
 
   const showButton = location.pathname !== "/";
-  const productClass =
-    location.pathname === "/" ? "product product--short" : "product";
+  const productClass = location.pathname === "/" ? "product product--short" : "product";
   const disableHover = location.pathname === "/";
-  const listMode = displayMode === "list"; // اضافه کردن متغیر listMode
+  const listMode = displayMode === "list";
 
   return (
     <div className={`${productClass} ${listMode ? "list-mode" : ""}`}>
@@ -23,6 +20,7 @@ function Product(props) {
         src={image}
         alt="product"
         className={`product__image ${disableHover ? "disable-hover" : ""}`}
+        onClick={() => handleProductClick(productId)}
       />
       {location.pathname !== "/" && (
         <Link to="/" className="product__link-text">
@@ -39,7 +37,7 @@ function Product(props) {
         </span>
       </div>
       {showButton && (
-        <button className="product__btn">
+        <button className="product__btn" onClick={() => handleAddToCart(productId)}>
           <span className="product__btn-text">Add To</span>
           <BsCartCheckFill className="product__btn-icon" />
         </button>

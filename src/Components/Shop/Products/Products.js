@@ -75,6 +75,12 @@ function Products({ displayMode, setDisplayMode }) {
     [navigate]
   );
 
+  const handleAddToCart = useCallback(() => {
+    // Logic for adding product to cart
+    // Example: dispatch an action to add the product to the cart state
+    console.log("Product added to cart!");
+  }, []);
+
   const loadMoreProducts = () => {
     setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 6);
     setPageNumber((prevPageNumber) => prevPageNumber + 1);
@@ -178,11 +184,8 @@ function Products({ displayMode, setDisplayMode }) {
           </div>
         ) : productsDatas.length > 0 ? (
           productsDatas.map((product) => (
-            <div
-              key={product.id}
-              onClick={() => handleProductClick(product.id)}
-            >
-              <Product {...product} className="product-box" />
+            <div key={product.id}>
+              <Product {...product} handleProductClick={()=>handleProductClick(product.id)} handleAddToCart={handleAddToCart} />
             </div>
           ))
         ) : (

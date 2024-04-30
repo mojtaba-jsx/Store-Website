@@ -10,6 +10,7 @@ import ReactLoading from "react-loading";
 
 function ProductInfo() {
   const { id } = useParams();
+  console.log(id);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -32,62 +33,69 @@ function ProductInfo() {
     navigate("/shop");
   };
 
-  if (loading) {
-    return (
-      <ReactLoading
-        height={200}
-        width={200}
-        className="loading"
-        type={"bars"}
-        color={"#000"}
-      />
-    );
-  }
-
   return (
     <div className="product-info">
       <Navbar />
       <ProductInfoRoute />
       <div className="product-info__wrapper">
-        <div className="product-info__left">
-          <img
-            src={product.image}
-            alt={product.title}
-            className="product-info__left-image"
+        {loading ? (
+          <ReactLoading
+            height={200}
+            width={200}
+            className="loading"
+            type={"bars"}
+            color={"#000"}
           />
-        </div>
-        <div className="product-info__right">
-          <h1 className="product-info__title">{product.title}</h1>
-          <span className="product-info__price">${product.price}</span>
-          <span className="product-info__rate">
-            {product.rating.rate} <FaStar className="product-info__rate-icon" />
-            <span className="product-info__userscomment">
-              <GiDiscussion className="product-info__userscomment-icon" />
-              By {product.rating.count} User
-            </span>
-          </span>
-          <p className="product-info__description">
-            <FaPencilAlt className="product-info__description-icon" />
-            {product.description}
-          </p>
-          <button
-            className="product-info__category"
-            onClick={() => handleCategoryClick(product.category)}
-          >
-            #{product.category}
-          </button>
-          <div className="product-info__inputs">
-            <input
-              type="number"
-              value={10}
-              className="product-info__inputs-number"
-            />
-            <button className="product-info__inputs-btn">
-              Add To Cart{" "}
-              <FaCartArrowDown className="product-info__inputs-btn-icon" />
-            </button>
-          </div>
-        </div>
+        ) : (
+          <>
+            <div className="product-info__left">
+              {product && (
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="product-info__left-image"
+                />
+              )}
+            </div>
+            <div className="product-info__right">
+              {product && (
+                <>
+                  <h1 className="product-info__title">{product.title}</h1>
+                  <span className="product-info__price">${product.price}</span>
+                  <span className="product-info__rate">
+                    {product.rating.rate}{" "}
+                    <FaStar className="product-info__rate-icon" />
+                    <span className="product-info__userscomment">
+                      <GiDiscussion className="product-info__userscomment-icon" />
+                      By {product.rating.count} User
+                    </span>
+                  </span>
+                  <p className="product-info__description">
+                    <FaPencilAlt className="product-info__description-icon" />
+                    {product.description}
+                  </p>
+                  <button
+                    className="product-info__category"
+                    onClick={() => handleCategoryClick(product.category)}
+                  >
+                    #{product.category}
+                  </button>
+                  <div className="product-info__inputs">
+                    <input
+                      type="number"
+                      value={10}
+                      className="product-info__inputs-number"
+                    />
+                    <button className="product-info__inputs-btn">
+                      Add To Cart{" "}
+                      <FaCartArrowDown className="product-info__inputs-btn-icon" />
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+          </>
+        )}
       </div>
       <Footer />
     </div>
