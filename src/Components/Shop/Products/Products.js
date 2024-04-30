@@ -75,10 +75,17 @@ function Products({ displayMode, setDisplayMode }) {
     [navigate]
   );
 
-  const handleAddToCart = useCallback(() => {
-    // Logic for adding product to cart
-    // Example: dispatch an action to add the product to the cart state
-    console.log("Product added to cart!");
+  const handleAddToCart = useCallback((product) => {
+    // Load existing cart data from localStorage
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Add new product to cart
+    const updatedCart = [...existingCart, product];
+
+    // Save updated cart data to localStorage
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+    console.log("Product added to cart:", product);
   }, []);
 
   const loadMoreProducts = () => {
@@ -185,7 +192,7 @@ function Products({ displayMode, setDisplayMode }) {
         ) : productsDatas.length > 0 ? (
           productsDatas.map((product) => (
             <div key={product.id}>
-              <Product {...product} handleProductClick={()=>handleProductClick(product.id)} handleAddToCart={handleAddToCart} />
+              <Product {...product} handleProductClick={() => handleProductClick(product.id)} handleAddToCart={() => handleAddToCart(product)} />
             </div>
           ))
         ) : (

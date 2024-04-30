@@ -21,6 +21,7 @@ function Cart() {
           </div>
 
           <div className="cart__left__boxes">
+
             <div className="cart__left__box">
               <span className="cart__left__box-image">
                 <img
@@ -40,6 +41,7 @@ function Cart() {
               </span>
               <span className="cart__left__box-total">$1000</span>
             </div>
+            
             <div className="cart__left__box">
               <span className="cart__left__box-image">
                 <img
