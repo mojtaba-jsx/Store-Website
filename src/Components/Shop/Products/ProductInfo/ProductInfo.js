@@ -10,8 +10,8 @@ import ReactLoading from "react-loading";
 
 function ProductInfo() {
   const { id } = useParams();
-  console.log(id);
   const [product, setProduct] = useState(null);
+  const [productValue, setProductValue] = useState(1);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ function ProductInfo() {
             width={200}
             className="loading"
             type={"bars"}
-            color={"#000"}
+            color={"#2ec1ac"}
           />
         ) : (
           <>
@@ -83,8 +83,9 @@ function ProductInfo() {
                   <div className="product-info__inputs">
                     <input
                       type="number"
-                      value={10}
+                      value={productValue}
                       className="product-info__inputs-number"
+                      onChange={setProductValue}
                     />
                     <button className="product-info__inputs-btn">
                       Add To Cart{" "}
