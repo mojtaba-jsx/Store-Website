@@ -1,9 +1,10 @@
 import React from "react";
 import "./Cart.css";
+import CartProduct from "./CartProduct/CartProduct";
 import Navbar from "../CommonComponents/Header/Navbar/Navbar";
 import CartLanding from "./CartLanding/CartLanding";
-import ShopBenefits from '../Shop/ShopBenefits/ShopBenefits'
-import Footer from '../CommonComponents/Footer/Footer'
+import ShopBenefits from "../Shop/ShopBenefits/ShopBenefits";
+import Footer from "../CommonComponents/Footer/Footer";
 
 function Cart() {
   return (
@@ -21,46 +22,7 @@ function Cart() {
           </div>
 
           <div className="cart__left__boxes">
-
-            <div className="cart__left__box">
-              <span className="cart__left__box-image">
-                <img
-                  src="../images/product.jpg"
-                  alt=""
-                  className="cart__left__box-img"
-                />
-              </span>
-              <span className="cart__left__box-name">Product</span>
-              <span className="cart__left__box-price">$100</span>
-              <span className="cart__left__box-number">
-                <input
-                  type="numver"
-                  value={10}
-                  className="cart__left__box-number-input"
-                />
-              </span>
-              <span className="cart__left__box-total">$1000</span>
-            </div>
-            
-            <div className="cart__left__box">
-              <span className="cart__left__box-image">
-                <img
-                  src="../images/product.jpg"
-                  alt=""
-                  className="cart__left__box-img"
-                />
-              </span>
-              <span className="cart__left__box-name">Product</span>
-              <span className="cart__left__box-price">$100</span>
-              <span className="cart__left__box-number">
-                <input
-                  type="numver"
-                  value={10}
-                  className="cart__left__box-number-input"
-                />
-              </span>
-              <span className="cart__left__box-total">$1000</span>
-            </div>
+            <CartProduct />
           </div>
         </div>
 
@@ -73,8 +35,8 @@ function Cart() {
           <button className="cart__right-btn">Check Out</button>
         </div>
       </div>
-      <ShopBenefits/>
-      <Footer/>
+      <ShopBenefits />
+      <Footer />
     </div>
   );
 }

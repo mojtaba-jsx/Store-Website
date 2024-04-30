@@ -28,38 +28,6 @@
   text-align: center;
 }
 
-.cart__left__box {
-  margin-top: 1rem;
-  font-family: "josefin", Courier, monospace;
-  background-color: #f9f1e7;
-  border-radius: 1rem;
-}
-
-.cart__left__box-image {
-  padding: 0.5rem;
-  border-radius: 1rem;
-}
-
-.cart__left__box-img {
-  width: 4.4rem;
-  height: 4.4rem;
-  border-radius: 1rem;
-}
-
-.cart__left__box {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.cart__left__box-number-input {
-  width: 5rem;
-  padding: 0.5rem;
-  border: 2px solid #9f9f9f;
-  outline: none;
-  border-radius: 1rem;
-  text-align: center;
-}
 
 .cart__right {
   width: 20%;
