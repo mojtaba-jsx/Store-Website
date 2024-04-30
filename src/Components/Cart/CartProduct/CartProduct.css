@@ -31,3 +31,11 @@
     border-radius: 1rem;
     text-align: center;
   }
+
+  .card-product__box-name{
+    width: 10rem;
+    line-height: 1.4rem;
+  }
+  .card-product__box-priceو.card-product__box-total{
+    width: 10rem;
+  }
