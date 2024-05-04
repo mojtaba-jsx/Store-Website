@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./CartProduct.css";
 
-function CartProduct({ id, image, title, price }) {
-  const [quantity, setQuantity] = useState(1);
+function CartProduct({ id, image, title, price, count, handleAddToCart }) {
+  const [quantity, setQuantity] = useState(count); // تغییر اینجا
 
   const handleQuantityChange = (e) => {
     const newQuantity = parseInt(e.target.value);
@@ -20,11 +20,12 @@ function CartProduct({ id, image, title, price }) {
         <input
           type="number"
           value={quantity}
-          onChange={handleQuantityChange}
+          onChange={handleQuantityChange} // تغییر اینجا
           className="card-product__box-number-input"
         />
       </span>
       <span className="card-product__box-total">${ Math.floor(price * quantity)}</span>
+      {/* <span className="card-product__box-count">{count}</span> */}
     </div>
   );
 }

@@ -8,26 +8,51 @@ import Footer from "../CommonComponents/Footer/Footer";
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
+  const [duplicateItems, setDuplicateItems] = useState([]);
 
   useEffect(() => {
     const cartItemsFromStorage = JSON.parse(localStorage.getItem("cart")) || [];
     setCartItems(cartItemsFromStorage);
+    setDuplicateItems(getDuplicateItems(cartItemsFromStorage));
   }, []);
 
   const handleAddToCart = (product) => {
-    const existingProductIndex = cartItems.findIndex(item => item.id === product.id);
-    if (existingProductIndex !== -1) {
-      const updatedCartItems = [...cartItems];
-      updatedCartItems[existingProductIndex] = product;
-      setCartItems(updatedCartItems);
+    const existingProduct = duplicateItems.find(
+      (item) => item.title === product.title
+    );
+    if (existingProduct) {
+      const updatedDuplicateItems = duplicateItems.map((item) =>
+        item.title === product.title ? { ...item, count: item.count + 1 } : item
+      );
+      setDuplicateItems(updatedDuplicateItems);
     } else {
-      setCartItems(prevItems => [...prevItems, product]);
+      setDuplicateItems((prevItems) => [
+        ...prevItems,
+        { ...product, count: 1 },
+      ]);
+      setCartItems((prevItems) => [...prevItems, product]);
     }
   };
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
+
+  useEffect(() => {
+    setCartItems(duplicateItems);
+  }, [duplicateItems]);
+
+  const getDuplicateItems = (items) => {
+    const duplicateItemsMap = {};
+    items.forEach((item) => {
+      if (duplicateItemsMap[item.title]) {
+        duplicateItemsMap[item.title].count++;
+      } else {
+        duplicateItemsMap[item.title] = { ...item, count: 1 };
+      }
+    });
+    return Object.values(duplicateItemsMap);
+  };
 
   return (
     <div className="cart">
@@ -47,6 +72,10 @@ function Cart() {
               <CartProduct
                 key={product.id}
                 {...product}
+                count={
+                  duplicateItems.find((item) => item.title === product.title)
+                    ?.count
+                }
                 handleAddToCart={() => handleAddToCart(product)}
               />
             ))}
@@ -57,9 +86,18 @@ function Cart() {
           <div className="cart__right__price">
             <span className="cart__right__price-title">Total</span>
             <span className="cart__right__price-value">
-              ${
-                cartItems.reduce((total, product) => total + product.price * product.quantity, 0)
-              }
+              $
+              {Math.floor(
+                cartItems.reduce(
+                  (total, product) =>
+                    total +
+                    product.price *
+                      (duplicateItems.find(
+                        (item) => item.title === product.title
+                      )?.count || 1),
+                  0
+                )
+              )}
             </span>
           </div>
           <button className="cart__right-btn">Check Out</button>
