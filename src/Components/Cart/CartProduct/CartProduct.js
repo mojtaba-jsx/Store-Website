@@ -16,16 +16,8 @@ function CartProduct({ id, image, title, price, count, handleAddToCart }) {
       </span>
       <span className="card-product__box-name">{title}</span>
       <span className="card-product__box-price">${price}</span>
-      <span className="card-product__box-number">
-        <input
-          type="number"
-          value={quantity}
-          onChange={handleQuantityChange} // تغییر اینجا
-          className="card-product__box-number-input"
-        />
-      </span>
+      <span className="card-product__box-number">{quantity}</span>
       <span className="card-product__box-total">${ Math.floor(price * quantity)}</span>
-      {/* <span className="card-product__box-count">{count}</span> */}
     </div>
   );
 }
