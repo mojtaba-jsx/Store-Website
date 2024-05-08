@@ -1,27 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./BlogPost.css";
-import { RiAdminFill } from "react-icons/ri";
-import { CiCalendarDate } from "react-icons/ci";
-import { FaTag } from "react-icons/fa6";
+
 function BlogPost(props) {
+  const navigate = useNavigate();
+
+  const handleBtnClick = (id) => {
+    localStorage.setItem("blogId", id);
+    navigate('/blog/info');
+  };
+
   return (
     <div className="blog-post">
       <div className="blog-post__wrapper">
         <img src={props.image} alt="" className="blog-post-image" />
         <div className="blog-post__infos">
           <span className="blog-post__infos-author">
-            <RiAdminFill className="blog-post__infos-icon" />
             {props.author}
           </span>
 
           <span className="blog-post__infos-date">
-            <CiCalendarDate className="blog-post__infos-icon" />
             {props.date}
           </span>
           <span className="blog-post__infos-tag">
-            <FaTag className="blog-post__infos-icon" />
             {props.tag}
           </span>
         </div>
@@ -29,11 +31,12 @@ function BlogPost(props) {
         <p className="blog-post-text">
           {(props.body).substring(0,100) + '...'}
         </p>
-        <button className="blog-post-btn">
+        <button className="blog-post-btn" onClick={() => handleBtnClick(props.id)}>
           <Link className="blog-post-btn-link" to={'/blog/info'}>Read More ...</Link>
         </button>
       </div>
     </div>
   );
 }
+
 export default BlogPost;
