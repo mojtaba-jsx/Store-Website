@@ -10,7 +10,7 @@ import { TfiLayoutListThumbAlt } from "react-icons/tfi";
 function Products({ displayMode, setDisplayMode }) {
   const [productsDatas, setProductsDatas] = useState([]);
   const [numberValue, setNumberValue] = useState("6");
-  const [visibleProducts, setVisibleProducts] = useState(6);
+  const [visibleProducts, setVisibleProducts] = useState(8);
   const [allProductsLoaded, setAllProductsLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -50,21 +50,21 @@ function Products({ displayMode, setDisplayMode }) {
         }
         setProductsDatas(products);
         setIsLoading(false);
-        setLoadingCategory(false); // Set loading between categories to false after products are loaded
+        setLoadingCategory(false); 
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
         setIsLoading(false);
-        setLoadingCategory(false); // Set loading between categories to false if there's an error
+        setLoadingCategory(false); 
       });
   }, [visibleProducts, category, pageNumber]);
 
   useEffect(() => {
     if (category === "all") {
-      setNumberValue("6");
+      setNumberValue("8");
     } else {
-      setNumberValue("6");
-      setVisibleProducts(6);
+      setNumberValue("8");
+      setVisibleProducts(8);
     }
   }, [category]);
 
