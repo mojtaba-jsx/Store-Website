@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import './Blog.css'
 import BlogLanding from './BlogLanding/BlogLanding'
 import Navbar from '../CommonComponents/Header/Navbar/Navbar'
@@ -6,13 +6,14 @@ import BlogPost from './BlogPost/BlogPost'
 import SHopBenefits from '../Shop/ShopBenefits/ShopBenefits'
 import Footer from '../CommonComponents/Footer/Footer'
 function Blog() {
-
-  const [blogPosts, setBlogPosts] = useState([
-    {id:1,title:'best clothses in the word',body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',image:'./images/product.jpg'},
-    {id:2,title:'best clothses in the word',body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',image:'./images/product.jpg'},
-    {id:3,title:'best clothses in the word',body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',image:'./images/product.jpg'},
-    {id:4,title:'best clothses in the word',body:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',image:'./images/product.jpg'},
-  ])
+useEffect(()=>{
+  fetch('https://66372b1a288fedf6937f9fdc.mockapi.io/Articles')
+  .then(res=>res.json())
+  .then(data=>{
+    setBlogPosts(data)
+  })
+})
+  const [blogPosts, setBlogPosts] = useState([])
   return (
     <div className='blog'>
       <Navbar/>

@@ -13,21 +13,21 @@ function BlogPost(props) {
         <div className="blog-post__infos">
           <span className="blog-post__infos-author">
             <RiAdminFill className="blog-post__infos-icon" />
-            Admin
+            {props.author}
           </span>
 
           <span className="blog-post__infos-date">
             <CiCalendarDate className="blog-post__infos-icon" />
-            14 Oct 2022
+            {props.date}
           </span>
           <span className="blog-post__infos-tag">
             <FaTag className="blog-post__infos-icon" />
-            Clothes
+            {props.tag}
           </span>
         </div>
         <h1 className="blog-post-title">{props.title}</h1>
         <p className="blog-post-text">
-          {props.body}
+          {(props.body).substring(0,100) + '...'}
         </p>
         <button className="blog-post-btn">
           <Link className="blog-post-btn-link" to={'/blog/info'}>Read More ...</Link>

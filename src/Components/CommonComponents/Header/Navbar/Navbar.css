@@ -54,8 +54,12 @@
 .navbar__menu__list__item-link,
 .navbar__logo-text-link {
   text-decoration: none;
-  font-family: "roboto-medium", Courier, monospace;
+  font-family: "josefin", Courier, monospace;
   color: black;
+}
+.navbar__logo-text-link{
+  font-weight: bold;
+  color: #2ec1ac;
 }
 .navbar__menu__list__item-link {
   padding: 0.8rem 1rem;

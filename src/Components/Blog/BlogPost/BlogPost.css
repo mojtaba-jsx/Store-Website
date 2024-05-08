@@ -4,8 +4,8 @@
 }
 
 .blog-post {
-  width: 80rem;
-  /* height: 44rem; */
+  width: 50rem;
+  /* height: 58rem; */
   background-color: #faf3ea;
   padding: 1rem;
   margin: 0 auto;
@@ -20,16 +20,20 @@
   display: flex;
   flex-direction: column;
 }
-
+.blog-post__imagebox{
+  height: 50%;
+}
 .blog-post-image {
-  width: 20rem;
+
+  width:100%;
   display: block;
   margin: 0 auto;
-  /* height: auto; */
+  height: auto;
   border-radius: 1rem;
 }
 
 .blog-post__infos {
+  height: 50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
