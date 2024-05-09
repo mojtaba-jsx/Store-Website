@@ -13,6 +13,7 @@ function ProductInfo() {
   const [product, setProduct] = useState(null);
   const [productValue, setProductValue] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [buttonText, setButtonText] = useState("Add To Cart");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,6 +28,23 @@ function ProductInfo() {
         setLoading(false);
       });
   }, [id]);
+
+  const handleAddToCart = () => {
+    if (product) {
+      const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+      const updatedCart = [...existingCart];
+      for (let i = 0; i < productValue; i++) {
+        updatedCart.push(product);
+      }
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      // Update button text to "Added To Cart" temporarily
+      setButtonText("Added To Cart");
+      // Reset button text after 2 seconds
+      setTimeout(() => {
+        setButtonText("Add To Cart");
+      }, 2000);
+    }
+  };
 
   const handleCategoryClick = (category) => {
     sessionStorage.setItem("selectedCategory", category);
@@ -85,10 +103,13 @@ function ProductInfo() {
                       type="number"
                       value={productValue}
                       className="product-info__inputs-number"
-                      onChange={setProductValue}
+                      onChange={(e) => setProductValue(parseInt(e.target.value))}
                     />
-                    <button className="product-info__inputs-btn">
-                      Add To Cart{" "}
+                    <button
+                      className="product-info__inputs-btn"
+                      onClick={handleAddToCart}
+                    >
+                      {buttonText}{" "}
                       <FaCartArrowDown className="product-info__inputs-btn-icon" />
                     </button>
                   </div>

@@ -2,8 +2,9 @@ import React from "react";
 import "./CheckOut.css";
 import CheckOutLanding from "./CheckOutLanding/CheckOutLanding";
 import Navbar from "../CommonComponents/Header/Navbar/Navbar";
-import ShopBenefits from '../Shop/ShopBenefits/ShopBenefits';
-import Footer from '../CommonComponents/Footer/Footer'
+import ShopBenefits from "../Shop/ShopBenefits/ShopBenefits";
+import Footer from "../CommonComponents/Footer/Footer";
+
 function CheckOut() {
   return (
     <div className="checkout">
@@ -84,26 +85,12 @@ function CheckOut() {
         </div>
 
         <div className="checkout__right">
-          <div className="checkout__right-title">
-            <span className="checkout__right-title-name">Product</span>
-            <span className="checkout__right-title-name">Subtotal</span>
-          </div>
-
-          <div className="checkout__right-product">
-            <span className="checkout__right-product-name">Shirt * 1</span>
-            <span className="checkout__right-product-price">$100</span>
-          </div>
-
-          <div className="checkout__right-total">
-            <span className="checkout__right-total-name">Total</span>
-            <span className="checkout__right-total-price">$1000</span>
-          </div>
-
           <div className="checkout__right-payment">
             <form className="checkout__right-payment-form">
               <div className="checkout__right-payment-form-box1">
                 <input
                   type="radio"
+                  name="paymentMethod"
                   id="bank"
                   className="checkout__right-payment-form-box1-radio"
                 />
@@ -118,10 +105,11 @@ function CheckOut() {
               <div className="checkout__right-payment-form-box2">
                 <input
                   type="radio"
-                  id="delivary"
+                  name="paymentMethod"
+                  id="delivery"
                   className="checkout__right-payment-form-radio"
                 />
-                <label htmlFor="delivary">Cash On Delivery</label>
+                <label htmlFor="delivery">Cash On Delivery</label>
                 <p className="checkout__right-payment-form-desc">
                   Bill payment is done at home
                 </p>
@@ -133,13 +121,15 @@ function CheckOut() {
                   for other purposes described in our privacy policy.
                 </p>
               </div>
-              <button className="checkout__right-payment-form-btn">Place order</button>
+              <button className="checkout__right-payment-form-btn">
+                Place order
+              </button>
             </form>
           </div>
         </div>
       </div>
-      <ShopBenefits/>
-      <Footer/>
+      <ShopBenefits />
+      <Footer />
     </div>
   );
 }

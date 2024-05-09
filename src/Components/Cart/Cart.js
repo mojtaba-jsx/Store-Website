@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./Cart.css";
 import CartProduct from "./CartProduct/CartProduct";
 import Navbar from "../CommonComponents/Header/Navbar/Navbar";
@@ -7,6 +9,7 @@ import ShopBenefits from "../Shop/ShopBenefits/ShopBenefits";
 import Footer from "../CommonComponents/Footer/Footer";
 
 function Cart() {
+  const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
   const [duplicateItems, setDuplicateItems] = useState([]);
 
@@ -53,6 +56,12 @@ function Cart() {
     });
     return Object.values(duplicateItemsMap);
   };
+  
+
+  const goCheckoutHandler = ()=>{
+    navigate('/shop/checkout');
+
+  }
 
   return (
     <div className="cart">
@@ -100,7 +109,7 @@ function Cart() {
               )}
             </span>
           </div>
-          <button className="cart__right-btn">Check Out</button>
+          <button onClick={goCheckoutHandler} className="cart__right-btn">Check Out</button>
         </div>
       </div>
       <ShopBenefits />
