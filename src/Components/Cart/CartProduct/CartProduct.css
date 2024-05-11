@@ -20,7 +20,10 @@
   .card-product__box {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    justify-content: space-between;
   }
   
   .card-product__box-number-input {
@@ -39,3 +42,4 @@
   .card-product__box-priceو.card-product__box-total{
     width: 10rem;
   }
+

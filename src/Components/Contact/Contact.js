@@ -33,7 +33,8 @@ function Contact() {
                   Address
                 </h3>
                 <p className="contact__bottom__left__box-right-text">
-                  236 5th SE Avenue, New York NY10000, United States
+                  Iran - Isfahan Is A Beautiful Place With Good Weather In The
+                  Heart Of Beautiful Iran
                 </p>
               </div>
             </div>
@@ -47,10 +48,10 @@ function Contact() {
                   Phone
                 </h3>
                 <span className="contact__bottom__left__box-right-title-text">
-                  Mobile: +(84) 546-6789
+                  Mobile: 09218750654
                 </span>
                 <span className="contact__bottom__left__box-right-title-text">
-                  Hotline: +(84) 456-6789
+                  Hotline: 09218750654
                 </span>
               </div>
             </div>

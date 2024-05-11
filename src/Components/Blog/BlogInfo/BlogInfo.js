@@ -17,6 +17,7 @@ function BlogInfo() {
       .then(res => res.json())
       .then(data => setBlogInfo(data))
       .catch(error => console.log("Error fetching blog info:", error));
+      window.scrollTo(0, 0);
   }, []);
 
   return (

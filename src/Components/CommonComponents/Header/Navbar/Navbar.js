@@ -1,5 +1,5 @@
 // !Importe
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import "./Navbar.css";
@@ -99,12 +99,6 @@ function Navbar() {
         </div>
 
         <div className="navbar__btns">
-          <span className="navbar__btns__user">
-            <a href="#" className="navbar__btns__user-link">
-              <FaUserPlus className="navbar__btns__user-link-icon" />
-            </a>
-          </span>
-
           <span className="navbar__btns__search" onClick={searchBoxShowHide}>
             <IoSearch className="navbar__btns__search-icon" />
           </span>

@@ -4,7 +4,6 @@
 }
 .blog-info {
   margin-bottom: 4rem;
-  
 }
 
 .blog-info__title {
@@ -54,6 +53,8 @@
   font-family: "josefin", Courier, monospace;
   line-height: 1.2rem;
   margin-bottom: 4rem;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
 }
 
 @media screen and (max-width: 980px) {

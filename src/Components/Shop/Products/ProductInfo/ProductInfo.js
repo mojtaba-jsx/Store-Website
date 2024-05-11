@@ -22,10 +22,12 @@ function ProductInfo() {
       .then((product) => {
         setProduct(product);
         setLoading(false);
+        window.scrollTo(0, 0);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
         setLoading(false);
+      
       });
   }, [id]);
 

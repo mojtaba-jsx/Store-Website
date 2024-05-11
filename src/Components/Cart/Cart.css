@@ -25,8 +25,12 @@
 
 .cart__left__header span {
   width: 30%;
-  text-align: center;
+  text-align: right;
 }
+.cart__left__header span:nth-child(1) {
+ text-align: center;
+}
+
 
 
 .cart__right {
