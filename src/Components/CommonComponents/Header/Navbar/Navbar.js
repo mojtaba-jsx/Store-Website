@@ -14,6 +14,10 @@ import { IoMenu } from "react-icons/io5";
 // !Componnet
 function Navbar() {
   const [searchValue, setSearchValue] = useState("");
+  const [cartProducts, setCartProducts] = useState(
+    JSON.parse(localStorage.getItem("cart"))
+  );
+  console.log(cartProducts);
   // !ElementsRef
   const mobileMenuRef = React.createRef();
   const searchBoxRef = React.createRef();
@@ -48,6 +52,8 @@ function Navbar() {
     let basketElement = basketRef.current;
     basketElement.classList.toggle("open");
   };
+
+
 
   return (
     <div className="navbar">
@@ -181,67 +187,31 @@ function Navbar() {
           </span>
           <div className="basket__wrapper">
             <span className="basket__title">Products List</span>
-            <div className="basket__product">
-              <div className="basket__product__left">
-                <img
-                  src="images/product.jpg"
-                  alt="product"
-                  className="basket__product__left-image"
-                />
-              </div>
 
-              <div className="basket__product__right">
-                <span className="basket__product__right-name">Prodcut1</span>
-                <span className="basket__product__right-price">$10</span>
-                <span className="basket__product__right-value">8</span>
-              </div>
-            </div>
-            <div className="basket__product">
-              <div className="basket__product__left">
-                <img
-                  src="images/product.jpg"
-                  alt="product"
-                  className="basket__product__left-image"
-                />
-              </div>
+            {cartProducts.map((product) => (
+              <div className="basket__product" key={product.id}>
+                <div className="basket__product__left">
+                  <img
+                    src={product.image}
+                    alt="product"
+                    className="basket__product__left-image"
+                  />
+                </div>
 
-              <div className="basket__product__right">
-                <span className="basket__product__right-name">Prodcut1</span>
-                <span className="basket__product__right-price">$10</span>
-                <span className="basket__product__right-value">8</span>
+                <div className="basket__product__right">
+                  <span className="basket__product__right-name">
+                    {product.title}
+                  </span>
+                  <span className="basket__product__right-price">
+                   {product.price + '$'} 
+                  </span>
+                </div>
               </div>
-            </div>
-            <div className="basket__product">
-              <div className="basket__product__left">
-                <img
-                  src="images/product.jpg"
-                  alt="product"
-                  className="basket__product__left-image"
-                />
-              </div>
-
-              <div className="basket__product__right">
-                <span className="basket__product__right-name">Prodcut1</span>
-                <span className="basket__product__right-price">$10</span>
-                <span className="basket__product__right-value">8</span>
-              </div>
-            </div>
-            <div className="basket__product">
-              <div className="basket__product__left">
-                <img
-                  src="images/product.jpg"
-                  alt="product"
-                  className="basket__product__left-image"
-                />
-              </div>
-
-              <div className="basket__product__right">
-                <span className="basket__product__right-name">Prodcut1</span>
-                <span className="basket__product__right-price">$10</span>
-                <span className="basket__product__right-value">8</span>
-              </div>
-            </div>
+            ))}
           </div>
+          <Link to={'/shop/cart'}>
+          <button className="basket__btn">Go To Cart</button>
+          </Link>
         </div>
 
         <span

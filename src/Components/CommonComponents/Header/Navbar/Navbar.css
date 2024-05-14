@@ -312,14 +312,40 @@
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
+.basket__product__right{
+  display: flex;
+  justify-content: space-around;
+}
 .basket__product__right-name {
   margin-right: 2rem;
   font-family: "roboto-medium", Courier, monospace;
+  margin-left: 1rem;
 }
 .basket__product__right-price {
   margin-right: 2rem;
   font-family: "roboto-medium", Courier, monospace;
 }
+.basket__btn{
+  display: block;
+  padding: 1rem;
+  margin: 0 auto;
+  outline: none;
+  border: none;
+  margin-top: 1rem;
+  width: 10rem;
+  border-radius: 1rem;
+  font-family: "roboto-medium", Courier, monospace;
+  background-color: #2b6c62;
+  color: #ffff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  cursor: pointer;
+  transition: all 140ms ease-in;
+
+}
+.basket__btn:hover{
+  transform: scale(1.04);
+}
+
 
 /*! Responsive */
 @media screen and (max-width: 1108px) {
