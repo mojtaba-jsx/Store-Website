@@ -315,15 +315,30 @@
 .basket__product__right{
   display: flex;
   justify-content: space-around;
+  align-items: center;
+}
+.basket__product__right span {
+  width: 2.8rem;
 }
 .basket__product__right-name {
   margin-right: 2rem;
   font-family: "roboto-medium", Courier, monospace;
   margin-left: 1rem;
 }
+.basket__product__right-quantity{
+  font-size: 1.2rem;
+  font-family: "roboto-bold", Courier, monospace;
+  background-color: #2ec1ac;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  color: #ffff;
+
+}
 .basket__product__right-price {
   margin-right: 2rem;
   font-family: "roboto-medium", Courier, monospace;
+  margin-left: 2rem;
 }
 .basket__btn{
   display: block;

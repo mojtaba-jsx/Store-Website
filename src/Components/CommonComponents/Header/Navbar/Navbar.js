@@ -5,7 +5,6 @@ import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 // !icons
 import { FaShopify } from "react-icons/fa";
-import { FaUserPlus } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
 import { FaBasketShopping } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
@@ -17,7 +16,21 @@ function Navbar() {
   const [cartProducts, setCartProducts] = useState(
     JSON.parse(localStorage.getItem("cart"))
   );
-  console.log(cartProducts);
+  
+  // Create an array to hold unique products with their quantities
+  const uniqueCartProducts = cartProducts.reduce((acc, product) => {
+    // Check if the product already exists in the uniqueCartProducts array
+    const existingProductIndex = acc.findIndex(item => item.id === product.id);
+    if (existingProductIndex !== -1) {
+      // If the product exists, increment its quantity
+      acc[existingProductIndex].quantity += 1;
+    } else {
+      // If the product doesn't exist, add it to the uniqueCartProducts array
+      acc.push({ ...product, quantity: 1 });
+    }
+    return acc;
+  }, []);
+
   // !ElementsRef
   const mobileMenuRef = React.createRef();
   const searchBoxRef = React.createRef();
@@ -28,32 +41,26 @@ function Navbar() {
     let mobileMenuElement = mobileMenuRef.current;
     mobileMenuElement.classList.toggle("open");
   };
-  //!
-
+  
   const searchBoxShowHide = () => {
     let searchBoxELement = searchBoxRef.current;
     searchBoxELement.classList.toggle("open");
   };
-  //!
-
+  
   const closeSearchModal = () => {
     let searchBoxELement = searchBoxRef.current;
     searchBoxELement.classList.toggle("open");
   };
-  //!
-
+  
   const showHidBasket = () => {
     let basketElement = basketRef.current;
     basketElement.classList.toggle("open");
   };
-  //!
-
+  
   const closeBasketModal = () => {
     let basketElement = basketRef.current;
     basketElement.classList.toggle("open");
   };
-
-
 
   return (
     <div className="navbar">
@@ -188,7 +195,8 @@ function Navbar() {
           <div className="basket__wrapper">
             <span className="basket__title">Products List</span>
 
-            {cartProducts.map((product) => (
+            {/* Display unique cart products */}
+            {uniqueCartProducts.map((product) => (
               <div className="basket__product" key={product.id}>
                 <div className="basket__product__left">
                   <img
@@ -200,17 +208,20 @@ function Navbar() {
 
                 <div className="basket__product__right">
                   <span className="basket__product__right-name">
-                    {product.title}
+                    {(product.title).substring(0, 20) + '...'}
+                  </span>
+                  <span className="basket__product__right-quantity">
+                     {product.quantity}
                   </span>
                   <span className="basket__product__right-price">
-                   {product.price + '$'} 
+                    {product.price + '$'}
                   </span>
                 </div>
               </div>
             ))}
           </div>
           <Link to={'/shop/cart'}>
-          <button className="basket__btn">Go To Cart</button>
+            <button className="basket__btn">Go To Cart</button>
           </Link>
         </div>
 

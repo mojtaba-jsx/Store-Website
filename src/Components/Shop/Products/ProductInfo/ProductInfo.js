@@ -44,7 +44,8 @@ function ProductInfo() {
       // Reset button text after 2 seconds
       setTimeout(() => {
         setButtonText("Add To Cart");
-      }, 2000);
+        window.location.reload();
+      }, 1400);
     }
   };
 
