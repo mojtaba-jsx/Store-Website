@@ -6,6 +6,11 @@ import { RingLoader } from "react-spinners";
 import { LuSettings2 } from "react-icons/lu";
 import { RiLayoutGridFill } from "react-icons/ri";
 import { TfiLayoutListThumbAlt } from "react-icons/tfi";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 
 function Products({ displayMode, setDisplayMode }) {
   const [productsDatas, setProductsDatas] = useState([]);
@@ -86,6 +91,13 @@ function Products({ displayMode, setDisplayMode }) {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
 
     console.log("Product added to cart:", product);
+    toast.success("Product Added To Cart!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+    });
   }, []);
 
   const loadMoreProducts = () => {
@@ -126,6 +138,7 @@ function Products({ displayMode, setDisplayMode }) {
 
   return (
     <>
+      <ToastContainer />
       <div className="shop-option">
         <div className="container">
           <div className="shop-option__wrapper">

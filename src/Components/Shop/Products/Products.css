@@ -166,6 +166,10 @@
   padding: 1rem;
 }
 
+.go-basket{
+  margin-right: 1rem;
+}
+
 @media screen and (max-width: 1200px) {
   .products-list div {
     width: 60rem;
