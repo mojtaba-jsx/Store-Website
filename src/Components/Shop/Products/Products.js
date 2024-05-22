@@ -9,9 +9,6 @@ import { TfiLayoutListThumbAlt } from "react-icons/tfi";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
-
 function Products({ displayMode, setDisplayMode }) {
   const [productsDatas, setProductsDatas] = useState([]);
   const [numberValue, setNumberValue] = useState("6");
@@ -22,7 +19,7 @@ function Products({ displayMode, setDisplayMode }) {
   const [category, setCategory] = useState("all");
   const [pageNumber, setPageNumber] = useState(1);
   const [totalProductsCount, setTotalProductsCount] = useState(0);
-  const [loadingCategory, setLoadingCategory] = useState(false); // New state for loading between categories
+  const [loadingCategory, setLoadingCategory] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,7 +31,7 @@ function Products({ displayMode, setDisplayMode }) {
 
   useEffect(() => {
     setIsLoading(true);
-    setLoadingCategory(true); // Set loading between categories to true
+    setLoadingCategory(true);
     const limit = visibleProducts;
     const offset = (pageNumber - 1) * visibleProducts;
     let apiUrl;
@@ -81,24 +78,27 @@ function Products({ displayMode, setDisplayMode }) {
   );
 
   const handleAddToCart = useCallback((product) => {
-    // Load existing cart data from localStorage
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Add new product to cart
     const updatedCart = [...existingCart, product];
-
-    // Save updated cart data to localStorage
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-
     console.log("Product added to cart:", product);
-    toast.success("Product Added To Cart!", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      draggable: true,
-    });
-  }, []);
+
+    toast.success(
+      <div>
+        Product Added To Cart!
+        <button className="go-to-cart" onClick={() => navigate('/shop/cart')} >
+          Go to Cart
+        </button>
+      </div>,
+      {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      }
+    );
+  }, [navigate]);
 
   const loadMoreProducts = () => {
     setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 6);
@@ -186,7 +186,7 @@ function Products({ displayMode, setDisplayMode }) {
                 type="number"
                 value={numberValue}
                 className="shop-option__right-show-input"
-                disabled={category !== "all"} // Disable input if category is not "all"
+                disabled={category !== "all"}
               />
             </span>
           </div>
@@ -198,7 +198,7 @@ function Products({ displayMode, setDisplayMode }) {
           displayMode === "grid" ? "products-grid" : "products-list"
         }`}
       >
-        {loadingCategory ? ( // Check if loading between categories
+        {loadingCategory ? (
           <div className="loading-category">
             <RingLoader color={"#ffffff"} size={64} />
           </div>

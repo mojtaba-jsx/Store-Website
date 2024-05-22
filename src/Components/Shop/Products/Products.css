@@ -166,8 +166,24 @@
   padding: 1rem;
 }
 
-.go-basket{
-  margin-right: 1rem;
+.go-to-cart{
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  margin-top: 1rem;
+  background-color: #b88e2f;
+  color: #ffff;
+  font-family: "josefin", Courier, monospace;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 140ms ease-in;
+
+}
+.go-to-cart:hover{
+  background-color:#2ec1ac;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
 }
 
 @media screen and (max-width: 1200px) {
