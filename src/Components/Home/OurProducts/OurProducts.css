@@ -1,47 +1,59 @@
 @font-face {
-    font-family: 'josefin';
-    src: url('../../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf');
+  font-family: "josefin";
+  src: url("../../../Fonts/Josefin/JosefinSans-VariableFont_wght.ttf");
 }
-.our-products{
-    margin-bottom: 4rem;
+.our-products {
+  margin-bottom: 4rem;
 }
-.our-products__title{
-    text-align: center;
-    font-size:4rem;
-    color: #B88E2F;
-    font-family: 'josefin', Courier, monospace;
-}
-
-.our-products__wrapper{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.slider {
+  /* width: 1400px; */
+  margin: 0 auto;
+  overflow: hidden;
 }
 
-.our-products__btn{
-    padding: 1rem 4rem;
-    display: block;
-    margin: 0 auto;
-    border: 2px solid #B88E2F;
-    background-color: #ffff;
-    outline: none;
-    border-radius: 1rem;
-    color: #B88E2F;
-    font-family: 'josefin', Courier, monospace;
-    font-size: 2rem;
-    transition: all 140ms ease-in;
+.our-products__title {
+  text-align: center;
+  font-size: 4rem;
+  color: #b88e2f;
+  font-family: "josefin", Courier, monospace;
 }
 
-.our-products__btn:hover{
-    background-color: #B88E2F;
-    color: #ffff;
-    cursor: pointer;
-}
-.our-products__btn:hover .our-products__btn-link{
-    color: #ffff;
+.our-products__wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-.our-products__btn-link{
-    color: #b88e2f;
-    text-decoration: none;
+.our-products__btn {
+  padding: 1rem 4rem;
+  display: block;
+  margin: 0 auto;
+  margin-top: 2rem;
+  border: 2px solid #b88e2f;
+  background-color: #ffff;
+  outline: none;
+  border-radius: 1rem;
+  color: #b88e2f;
+  font-family: "josefin", Courier, monospace;
+  font-size: 2rem;
+  transition: all 140ms ease-in;
+}
+
+.our-products__btn:hover {
+  background-color: #b88e2f;
+  color: #ffff;
+  cursor: pointer;
+}
+.our-products__btn:hover .our-products__btn-link {
+  color: #ffff;
+}
+
+.our-products__btn-link {
+  color: #b88e2f;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .slider {
+  }
 }
