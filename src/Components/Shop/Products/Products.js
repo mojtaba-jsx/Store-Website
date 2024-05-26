@@ -28,6 +28,10 @@ function Products({ displayMode, setDisplayMode }) {
       setCategory(selectedCategory);
     }
   }, []);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  });
 
   useEffect(() => {
     setIsLoading(true);

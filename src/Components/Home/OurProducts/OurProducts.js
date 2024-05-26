@@ -54,7 +54,7 @@ function OurProducts() {
       </h1>
       <Slider {...settings} className="slider">
         {products.map((item) => (
-          <div key={item.id}>
+          <div key={item.id} className="slider-item">
             <Product {...item}  className='product-slider'/>
           </div>
         ))}

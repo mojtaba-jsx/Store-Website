@@ -4,11 +4,16 @@
 }
 .our-products {
   margin-bottom: 4rem;
+
 }
 .slider {
   /* width: 1400px; */
   margin: 0 auto;
   overflow: hidden;
+}
+.slider-item{
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .our-products__title {
