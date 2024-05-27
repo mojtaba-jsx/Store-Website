@@ -50,12 +50,11 @@ function BlogInfo() {
           </span>
           <div className="blog__author-info">
             <img
-              src="/images/classic-man1.jpg"
+              src={blogInfo.authorImage}
               alt=""
               className="blog__author-image"
             />
-            <span className="blog__author__right-name">Alex Marks</span>
-            <span className="blog__author__right-role">Admin</span>
+            <span className="blog__author__right-name">{blogInfo.author}</span>
           </div>
         </div>
       </div>
