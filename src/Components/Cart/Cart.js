@@ -9,16 +9,21 @@ import ShopBenefits from "../Shop/ShopBenefits/ShopBenefits";
 import Footer from "../CommonComponents/Footer/Footer";
 
 function Cart() {
+  // Initialize navigation
   const navigate = useNavigate();
+
+  // State to hold cart items and duplicate items
   const [cartItems, setCartItems] = useState([]);
   const [duplicateItems, setDuplicateItems] = useState([]);
 
+  // Load cart items from local storage on component mount
   useEffect(() => {
     const cartItemsFromStorage = JSON.parse(localStorage.getItem("cart")) || [];
     setCartItems(cartItemsFromStorage);
     setDuplicateItems(getDuplicateItems(cartItemsFromStorage));
   }, []);
 
+  // Handle adding products to the cart
   const handleAddToCart = (product) => {
     const existingProduct = duplicateItems.find(
       (item) => item.title === product.title
@@ -37,14 +42,17 @@ function Cart() {
     }
   };
 
+  // Update local storage when cartItems changes
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
+  // Sync cartItems with duplicateItems
   useEffect(() => {
     setCartItems(duplicateItems);
   }, [duplicateItems]);
 
+  // Function to get duplicate items and count them
   const getDuplicateItems = (items) => {
     const duplicateItemsMap = {};
     items.forEach((item) => {
@@ -56,12 +64,11 @@ function Cart() {
     });
     return Object.values(duplicateItemsMap);
   };
-  
 
-  const goCheckoutHandler = ()=>{
-    navigate('/shop/checkout');
-
-  }
+  // Navigate to the checkout page
+  const goCheckoutHandler = () => {
+    navigate("/shop/checkout");
+  };
 
   return (
     <div className="cart">
@@ -109,7 +116,9 @@ function Cart() {
               )}
             </span>
           </div>
-          <button onClick={goCheckoutHandler} className="cart__right-btn">Check Out</button>
+          <button onClick={goCheckoutHandler} className="cart__right-btn">
+            Check Out
+          </button>
         </div>
       </div>
       <ShopBenefits />

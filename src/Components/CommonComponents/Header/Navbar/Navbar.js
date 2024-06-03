@@ -1,4 +1,4 @@
-// !Importe
+// !Imports
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
@@ -10,17 +10,20 @@ import { FaBasketShopping } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { IoMenu } from "react-icons/io5";
 
-// !Componnet
+// Navbar component
 function Navbar() {
+  // State for search input and cart products
   const [searchValue, setSearchValue] = useState("");
   const [cartProducts, setCartProducts] = useState(
     JSON.parse(localStorage.getItem("cart"))
   );
-  
+
   // Create an array to hold unique products with their quantities
   const uniqueCartProducts = cartProducts.reduce((acc, product) => {
     // Check if the product already exists in the uniqueCartProducts array
-    const existingProductIndex = acc.findIndex(item => item.id === product.id);
+    const existingProductIndex = acc.findIndex(
+      (item) => item.id === product.id
+    );
     if (existingProductIndex !== -1) {
       // If the product exists, increment its quantity
       acc[existingProductIndex].quantity += 1;
@@ -37,26 +40,31 @@ function Navbar() {
   const basketRef = React.createRef();
 
   // !Functions
+  // Toggle mobile menu visibility
   const showAndHideMobileMenu = () => {
     let mobileMenuElement = mobileMenuRef.current;
     mobileMenuElement.classList.toggle("open");
   };
-  
+
+  // Toggle search box visibility
   const searchBoxShowHide = () => {
     let searchBoxELement = searchBoxRef.current;
     searchBoxELement.classList.toggle("open");
   };
-  
+
+  // Close search modal
   const closeSearchModal = () => {
     let searchBoxELement = searchBoxRef.current;
     searchBoxELement.classList.toggle("open");
   };
-  
+
+  // Toggle basket visibility
   const showHidBasket = () => {
     let basketElement = basketRef.current;
     basketElement.classList.toggle("open");
   };
-  
+
+  // Close basket modal
   const closeBasketModal = () => {
     let basketElement = basketRef.current;
     basketElement.classList.toggle("open");
@@ -176,7 +184,7 @@ function Navbar() {
             <IoClose />
           </span>
           <div className="search-modal__wrapper">
-            <span className="search-modal__title">Search Prodcuts </span>
+            <span className="search-modal__title">Search Products</span>
             <input
               onChange={(e) => setSearchValue(e.target.value)}
               value={searchValue}
@@ -208,19 +216,19 @@ function Navbar() {
 
                 <div className="basket__product__right">
                   <span className="basket__product__right-name">
-                    {(product.title).substring(0, 20) + '...'}
+                    {product.title.substring(0, 20) + "..."}
                   </span>
                   <span className="basket__product__right-quantity">
-                     {product.quantity}
+                    {product.quantity}
                   </span>
                   <span className="basket__product__right-price">
-                    {product.price + '$'}
+                    {product.price + "$"}
                   </span>
                 </div>
               </div>
             ))}
           </div>
-          <Link to={'/shop/cart'}>
+          <Link to={"/shop/cart"}>
             <button className="basket__btn">Go To Cart</button>
           </Link>
         </div>

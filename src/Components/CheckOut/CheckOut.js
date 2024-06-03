@@ -5,14 +5,20 @@ import Navbar from "../CommonComponents/Header/Navbar/Navbar";
 import ShopBenefits from "../Shop/ShopBenefits/ShopBenefits";
 import Footer from "../CommonComponents/Footer/Footer";
 
+// Component to render the checkout page
 function CheckOut() {
   return (
     <div className="checkout">
+      {/* Navigation bar */}
       <Navbar />
+      {/* Landing section of the checkout page */}
       <CheckOutLanding />
+      
       <div className="checkout__wrapper">
         <div className="checkout__left">
           <h2 className="checkout__left-title">Billing details</h2>
+          
+          {/* Billing details form */}
           <form className="checkout-form">
             <div className="checkout-form__row1">
               <div className="checkout-form__row1__col1">
@@ -86,6 +92,7 @@ function CheckOut() {
 
         <div className="checkout__right">
           <div className="checkout__right-payment">
+            {/* Payment method form */}
             <form className="checkout__right-payment-form">
               <div className="checkout__right-payment-form-box1">
                 <input
@@ -128,7 +135,10 @@ function CheckOut() {
           </div>
         </div>
       </div>
+      
+      {/* Benefits section */}
       <ShopBenefits />
+      {/* Footer section */}
       <Footer />
     </div>
   );

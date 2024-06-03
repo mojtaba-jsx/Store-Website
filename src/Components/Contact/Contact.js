@@ -7,12 +7,19 @@ import Footer from "../CommonComponents/Footer/Footer";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoTime } from "react-icons/io5";
+
+// Contact component
 function Contact() {
   return (
     <div className="contact">
+      {/* Navbar */}
       <Navbar />
+
+      {/* Contact Landing Section */}
       <ContactLanding />
+
       <div className="contact__wrapper">
+        {/* Top Section */}
         <div className="contact__top">
           <h2 className="contact__top__title">Get In Touch With Us</h2>
           <p className="contact__top__text">
@@ -22,7 +29,9 @@ function Contact() {
           </p>
         </div>
 
+        {/* Bottom Section */}
         <div className="contact__bottom">
+          {/* Left Side - Contact Information */}
           <div className="contact__bottom__left">
             <div className="contact__bottom__left__box">
               <div className="contact__bottom__left__box-left">
@@ -74,6 +83,7 @@ function Contact() {
             </div>
           </div>
 
+          {/* Right Side - Contact Form */}
           <div className="contact__bottom__right">
             <form className="contact__bottom__right-form">
               <div className="contact__bottom__right-form-name">
@@ -114,7 +124,11 @@ function Contact() {
           </div>
         </div>
       </div>
+
+      {/* Shop Benefits Section */}
       <ShopBenefits />
+
+      {/* Footer */}
       <Footer />
     </div>
   );
